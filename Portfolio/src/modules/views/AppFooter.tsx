@@ -56,7 +56,7 @@ export default function AppFooter() {
               direction="column"
               justifyContent="flex-end"
               spacing={2}
-              sx={{ height: 120 }}
+              sx={{ height: 72 }}
             >
               <Grid item sx={{ display: 'flex' }}>
                 <Box component="a" href="https://www.linkedin.com/in/mingshanetong/" sx={iconStyle}>
@@ -65,12 +65,6 @@ export default function AppFooter() {
                     alt="LinkedIn"
                     height="22px"
                     width="22px"
-                  />
-                </Box>
-                <Box component="a" href="https://twitter.com/MUI_hq" sx={iconStyle}>
-                  <img
-                    src="/static/themes/onepirate/appFooterTwitter.png"
-                    alt="Twitter"
                   />
                 </Box>
               </Grid>

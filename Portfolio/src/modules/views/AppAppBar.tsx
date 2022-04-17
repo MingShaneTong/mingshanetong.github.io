@@ -71,7 +71,7 @@ function AppAppBar(props: BarProps) {
               href="/project"
               sx={projectsx}
             >
-              {'Project'}
+              {'Projects'}
             </Link>
             <Link
               variant="h6"
@@ -79,7 +79,7 @@ function AppAppBar(props: BarProps) {
               href="/Contact"
               sx={contactsx}
             >
-              {'Contact'}
+              {'Contacts'}
             </Link>
           </Box>
         </Toolbar>

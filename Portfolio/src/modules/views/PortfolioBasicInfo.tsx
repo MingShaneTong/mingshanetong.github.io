@@ -3,6 +3,7 @@ import { Theme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Button from '../components/Button';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 
@@ -13,13 +14,13 @@ const item: SxProps<Theme> = {
   px: 5,
 };
 
-function ProductValues() {
+function PortfolioBasicInfo() {
   return (
     <Box
       component="section"
-      sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
+      sx={{ display: 'flex', overflow: 'hidden' }}
     >
-      <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
+      <Container sx={{ mt: 15, mb: 15, display: 'flex', position: 'relative' }}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
             <Box sx={item}>
@@ -75,4 +76,4 @@ function ProductValues() {
   );
 }
 
-export default ProductValues;
+export default PortfolioBasicInfo;

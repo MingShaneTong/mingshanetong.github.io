@@ -4,7 +4,7 @@ import { SxProps } from '@mui/system';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
-const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
+const PortfolioTitleLayoutRoot = styled('section')(({ theme }) => ({
   color: theme.palette.common.white,
   position: 'relative',
   display: 'flex',
@@ -31,13 +31,13 @@ interface ProductHeroLayoutProps {
   sxBackground: SxProps<Theme>;
 }
 
-export default function ProductHeroLayout(
+export default function PortfolioTitleLayout(
   props: React.HTMLAttributes<HTMLDivElement> & ProductHeroLayoutProps,
 ) {
   const { sxBackground, children } = props;
 
   return (
-    <ProductHeroLayoutRoot>
+    <PortfolioTitleLayoutRoot>
       <Container
         sx={{
           mt: 3,
@@ -47,11 +47,9 @@ export default function ProductHeroLayout(
           alignItems: 'center',
         }}
       >
-        <img
-          src="/static/themes/onepirate/productHeroWonder.png"
-          alt="wonder"
-          width="147"
-          height="80"
+        <Box
+          component="div"
+          height="80px"
         />
         {children}
         <Box
@@ -67,15 +65,7 @@ export default function ProductHeroLayout(
           }}
         />
         <Background sx={sxBackground} />
-        <Box
-          component="img"
-          src="/static/themes/onepirate/productHeroArrowDown.png"
-          height="16"
-          width="12"
-          alt="arrow down"
-          sx={{ position: 'absolute', bottom: 32 }}
-        />
       </Container>
-    </ProductHeroLayoutRoot>
+    </PortfolioTitleLayoutRoot>
   );
 }

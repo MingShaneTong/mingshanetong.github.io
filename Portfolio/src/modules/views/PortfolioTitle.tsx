@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
-import ProductHeroLayout from './ProductHeroLayout';
+import PortfolioTitleLayout from './PortfolioTitleLayout';
 
 const backgroundImage =
   'https://images.unsplash.com/photo-1529661197280-63dc545366c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80';
 
-export default function ProductHero() {
+export default function PortfolioTitle() {
   return (
-    <ProductHeroLayout
+    <PortfolioTitleLayout
       sxBackground={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundColor: '#b8afae', // Average color of the background image.
@@ -26,19 +26,6 @@ export default function ProductHero() {
       >
         Full Stack Web Development with a strong interest in machine learning and data analysis
       </Typography>
-      <Button
-        color="secondary"
-        variant="contained"
-        size="large"
-        component="a"
-        href="/premium-themes/onepirate/sign-up/"
-        sx={{ minWidth: 200 }}
-      >
-        Register
-      </Button>
-      <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
-        Discover the experience
-      </Typography>
-    </ProductHeroLayout>
+    </PortfolioTitleLayout>
   );
 }
