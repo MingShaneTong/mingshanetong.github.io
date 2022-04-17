@@ -60,7 +60,7 @@ function AppAppBar(props: BarProps) {
               color="inherit"
               variant="h6"
               underline="none"
-              href="/work-experience"
+              href="/#/work-experience"
               sx={worksx}
             >
               {'Work Experience'}
@@ -68,7 +68,7 @@ function AppAppBar(props: BarProps) {
             <Link
               variant="h6"
               underline="none"
-              href="/project"
+              href="/#/project"
               sx={projectsx}
             >
               {'Projects'}
@@ -76,7 +76,7 @@ function AppAppBar(props: BarProps) {
             <Link
               variant="h6"
               underline="none"
-              href="/contact"
+              href="/#/contact"
               sx={contactsx}
             >
               {'Contacts'}
