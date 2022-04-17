@@ -24,6 +24,7 @@ export default function PortfolioTitle() {
         variant="h5"
         sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
       >
+        Website Still in Development. Please note areas that are incomplete. 
         Full Stack Web Development with a strong interest in machine learning and data analysis
       </Typography>
     </PortfolioTitleLayout>

@@ -21,12 +21,12 @@ export default function PortfolioAboutMe() {
           <Grid container spacing={2}>
             <Grid item md={6}>
               <p style={{ margin: "0" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat pellentesque maximus. Morbi diam erat, auctor ut blandit in, pretium eu velit. Vestibulum vitae odio sit amet leo mollis accumsan a sit amet quam. Maecenas pharetra sem porttitor turpis rhoncus consectetur. Cras ac purus egestas nunc dapibus mollis. Vivamus aliquet nisl sapien, ut molestie nulla bibendum quis. Nulla ac consequat eros, faucibus bibendum elit. Donec tincidunt enim id dui elementum, in porta sem aliquam. Praesent egestas purus vel mattis congue.
+                I love to solve problem and construct efficient solutions using computer science and mathematics. I am fond of utilizing and exploring different algorithms that work with data to overcomes difficult challenges. I am motivated by the lessons that I learn from working on a range of projects teaching me skills that I can carry into my next challenge. I like what I make to focus on the end-user and the development team which means I value simplicity, security, and usability.
               </p>
             </Grid>
             <Grid item md={6}>
               <p style={{ margin: "0" }}>
-                Sed varius venenatis dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam volutpat dui eu arcu varius pellentesque. Nam a dolor et nisi egestas tempus. In nulla nulla, lobortis at orci ut, ultrices tempus risus. Duis maximus quis dui nec finibus. Vestibulum rutrum facilisis sem quis pharetra. Quisque varius odio a urna blandit, ac auctor lorem molestie. Sed lacus lacus, finibus id consequat ut, cursus eu magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque blandit neque leo, sit amet tempus magna molestie a. Donec ut justo enim.
+                I love learning how to use new technologies. I can adapt quickly and pick up new frameworks by reading documentation, analyzing the examples and consulting mentors. I am constantly iterating on what I learn and using new knowledge, discoveries as well as mistakes to craft and improve my application. During my employment, I learnt how to create Windows Services through documentation and code examples to create automated tasks. I applied what I had learnt to create a program to monitor software environment to ensure that they are healthy. 
               </p>
             </Grid>
           </Grid>
