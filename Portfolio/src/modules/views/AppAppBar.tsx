@@ -76,7 +76,7 @@ function AppAppBar(props: BarProps) {
             <Link
               variant="h6"
               underline="none"
-              href="/Contact"
+              href="/contact"
               sx={contactsx}
             >
               {'Contacts'}
