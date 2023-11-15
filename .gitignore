@@ -1,0 +1,8 @@
+# Main .gitignore in the parent folder
+
+# Ignore node_modules in the parent folder
+node_modules/
+
+# Include rules from child folders
+include frontend/.gitignore
+include backend/.gitignore
