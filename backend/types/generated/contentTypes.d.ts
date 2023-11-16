@@ -376,7 +376,6 @@ export interface ApiPostPost extends Schema.CollectionType {
   attributes: {
     Title: Attribute.String;
     Content: Attribute.RichText;
-    ContentRich: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

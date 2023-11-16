@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import { Box, Heading } from "@chakra-ui/layout";
 import rehypeRaw from 'rehype-raw'
 
-
 interface Response {
   data: {
     id: number;
@@ -18,7 +17,7 @@ interface Response {
   meta: any;
 }
 
-export const getData = async () => {
+const getData = async () => {
   const response = await axios.get("http://localhost:1337/api/posts", {
     headers: {
       Accept: "application/json",

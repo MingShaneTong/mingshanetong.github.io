@@ -1,0 +1,11 @@
+FROM node:20
+
+WORKDIR /app
+
+# install packages on container
+COPY package*.json ./
+RUN npm install
+
+EXPOSE 1337
+
+CMD ["npm", "run", "dev"]
