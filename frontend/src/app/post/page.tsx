@@ -18,7 +18,7 @@ interface Response {
 }
 
 const getData = async () => {
-  const response = await axios.get("http://localhost:1337/api/posts", {
+  const response = await axios.get("http://backend:1337/api/posts", {
     headers: {
       Accept: "application/json",
     },
