@@ -2,6 +2,7 @@ import axios from "axios";
 import ReactMarkdown from 'react-markdown';
 import { Box, Heading } from "@chakra-ui/layout";
 import rehypeRaw from 'rehype-raw'
+import { apiUrl } from "../../config/api.ts"
 
 interface Response {
   data: {
@@ -18,7 +19,7 @@ interface Response {
 }
 
 const getData = async () => {
-  const response = await axios.get("http://backend:1337/api/posts", {
+  const response = await axios.get(apiUrl + "/api/posts", {
     headers: {
       Accept: "application/json",
     },
