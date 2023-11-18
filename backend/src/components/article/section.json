@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_article_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "pencil",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "article.text"
+    }
+  }
+}

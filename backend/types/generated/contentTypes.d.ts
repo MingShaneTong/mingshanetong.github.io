@@ -374,8 +374,8 @@ export interface ApiPostPost extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Content: Attribute.RichText;
+    title: Attribute.String;
+    sections: Attribute.Component<'article.section', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
