@@ -62,19 +62,12 @@ const SectionView = ({ section }: { section: Section }) => {
 }
 
 const TextView = ({ text }: { text: PostText }) => {
-  if (text.type == 'html') {
-    return (
-      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {text.content}
-      </ReactMarkdown>
-    );
-  } else {
-    return (
-      <ReactMarkdown>
-        {text.content}
-      </ReactMarkdown>
-    );
-  }
+  let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
+  return (
+    <ReactMarkdown rehypePlugins={rehypePlugins}>
+      {text.content}
+    </ReactMarkdown>
+  );
 }
 
 export default IndexView;
