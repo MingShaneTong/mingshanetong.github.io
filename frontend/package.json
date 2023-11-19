@@ -16,6 +16,7 @@
     "dotenv": "^16.3.1",
     "framer-motion": "^4.1.17",
     "next": "14.0.2",
+    "qs": "^6.11.2",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/qs": "^6.9.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "typescript": "^5"
