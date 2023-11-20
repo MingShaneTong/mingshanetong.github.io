@@ -1,10 +1,9 @@
 import axios from "axios";
-import ReactMarkdown from 'react-markdown';
 import { Box, Heading, Text } from "@chakra-ui/layout";
-import rehypeRaw from 'rehype-raw'
 import qs from 'qs';
 import { apiUrl } from "@/config/api.ts"
 import { Post } from "@/models/Post.ts";
+import Link from 'next/link'
 
 
 interface Response {
@@ -35,14 +34,27 @@ const IndexView = async () => {
   let response = await getPosts();
 
   return (
-    <>
-      <Box height="100vh" padding="10">
-        <Heading>All Posts</Heading>
-        <Text>{JSON.stringify(response)}</Text>
-        {/* <ReactMarkdown rehypePlugins={[rehypeRaw]}>{data.data[0].attributes.Content}</ReactMarkdown> */}
-      </Box>
-    </>
+    <Box height="100vh" padding="10">
+      <Heading>All Posts</Heading>
+      {response.data.map(
+        (post, index) => 
+          <PostView key={index} post={post}/>)}
+    </Box>
   );
 };
+
+const PostView = ({ post }: { post: Post }) => {
+  let href = `/posts/${post.id}`;
+  let publishedAttribute = post.attributes.publishedAt;
+  let published = publishedAttribute instanceof Date ? publishedAttribute : new Date(publishedAttribute);
+  let options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: 'numeric'}
+
+  return (
+    <Link href={href}>
+      <Heading as='h2' size='lg'>{post.attributes.title}</Heading>
+      <Text>{published.toLocaleDateString("en-GB", options)}</Text>
+    </Link>
+  );
+}
 
 export default IndexView;

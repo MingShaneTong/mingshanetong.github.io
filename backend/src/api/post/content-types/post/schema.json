@@ -15,10 +15,10 @@
     "title": {
       "type": "string"
     },
-    "sections": {
+    "content": {
       "type": "component",
       "repeatable": true,
-      "component": "article.section"
+      "component": "article.text"
     }
   }
 }

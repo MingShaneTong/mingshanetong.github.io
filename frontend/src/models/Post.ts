@@ -5,15 +5,9 @@ export interface Post {
     createdAt: string | Date;
     updatedAt: string | Date;
     publishedAt: string | Date;
-    sections: Section[];
+    content: Text[];
   };
 };
-
-export interface Section {
-  id: number;
-  heading: string;
-  content: Text[]
-}
 
 export interface Text {
   id: number;
