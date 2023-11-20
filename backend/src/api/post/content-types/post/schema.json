@@ -12,11 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Content": {
-      "type": "richtext"
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "article.text"
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_article_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "markdown",
+        "html"
+      ]
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
