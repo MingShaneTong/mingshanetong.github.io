@@ -20,6 +20,14 @@
       "type": "component",
       "repeatable": true,
       "component": "footer.socials"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.link"
+    },
+    "footerText": {
+      "type": "string"
     }
   }
 }

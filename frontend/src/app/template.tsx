@@ -34,13 +34,12 @@ const getNavData = async () => {
 const getFooterData = async () => {
   const query = qs.stringify(
     {
-      populate: ["socials"]
+      populate: ["socials", "links"]
     },
     {
       encodeValuesOnly: true
     }
   );
-
   const response = await axios.get(`${apiUrl}/api/footer?${query}`, {
     headers: {
       Accept: "application/json",

@@ -1,19 +1,17 @@
 'use client'
 
-import IconMapper from '@/app/helpers/IconMapper'
-import { Footer } from '@/models/Footer'
 import {
   Box,
   chakra,
   Container,
-  SimpleGrid,
   Stack,
   Text,
-  VisuallyHidden,
   useColorModeValue,
+  VisuallyHidden,
 } from '@chakra-ui/react'
-import React, { ReactNode } from 'react'
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { ReactNode } from 'react'
+import IconMapper from '@/app/helpers/IconMapper'
+import { Footer } from '@/models/Footer'
 
 const Logo = (props: any) => {
   return (
@@ -61,73 +59,50 @@ const SocialButton = ({
   )
 }
 
-const ListHeader = ({ children }: { children: ReactNode }) => {
-  return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
-  )
-}
-
-export default function LargeWithNewsletter({ data }: { data: Footer }) {
+export default function SmallCentered({ data }: { data: Footer }) {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
-      <Container as={Stack} maxW={'6xl'} py={10}>
-        <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr' }}
-          spacing={8}>
-          <Stack spacing={6}>
-            <Box>
-              <Logo color={useColorModeValue('gray.700', 'white')} />
+      <Container
+        as={Stack}
+        maxW={'6xl'}
+        py={4}
+        spacing={4}
+        justify={'center'}
+        align={'center'}>
+        <Logo />
+        <Stack direction={'row'} spacing={6}>
+          {data.attributes.links.map((link, index) => 
+            <Box key={index} as="a" href={link.href}>
+              {link.label}
             </Box>
-            <Stack direction={'row'} spacing={6}>
-              {data.attributes.socials.map((social, index) => 
-                <SocialButton key={index} label={social.label} href={social.href}>
-                  {IconMapper(social.icon)}
-                </SocialButton>
-              )}
-            </Stack>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
-            <Box as="a" href={'#'}>
-              About us
-            </Box>
-            <Box as="a" href={'#'}>
-              Blog
-            </Box>
-            <Box as="a" href={'#'}>
-              Contact us
-            </Box>
-            <Box as="a" href={'#'}>
-              Pricing
-            </Box>
-            <Box as="a" href={'#'}>
-              Testimonials
-            </Box>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Box as="a" href={'#'}>
-              Help Center
-            </Box>
-            <Box as="a" href={'#'}>
-              Terms of Service
-            </Box>
-            <Box as="a" href={'#'}>
-              Legal
-            </Box>
-            <Box as="a" href={'#'}>
-              Privacy Policy
-            </Box>
-            <Box as="a" href={'#'}>
-              Satus
-            </Box>
-          </Stack>
-        </SimpleGrid>
+          )}
+        </Stack>
       </Container>
+
+      <Box
+        borderTopWidth={1}
+        borderStyle={'solid'}
+        borderColor={useColorModeValue('gray.200', 'gray.700')}>
+        <Container
+          as={Stack}
+          maxW={'6xl'}
+          py={4}
+          direction={{ base: 'column', md: 'row' }}
+          spacing={4}
+          justify={{ base: 'center', md: 'space-between' }}
+          align={{ base: 'center', md: 'center' }}>
+          <Text>{data.attributes.footerText}</Text>
+          <Stack direction={'row'} spacing={6}>
+            {data.attributes.socials.map((social, index) => 
+              <SocialButton key={index} label={social.label} href={social.href}>
+                {IconMapper(social.icon)}
+              </SocialButton>
+            )}
+          </Stack>
+        </Container>
+      </Box>
     </Box>
   )
 }

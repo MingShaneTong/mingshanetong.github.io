@@ -1,16 +1,13 @@
 {
-  "collectionName": "components_footer_socials",
+  "collectionName": "components_footer_links",
   "info": {
-    "displayName": "Social",
-    "icon": "user",
+    "displayName": "Link",
+    "icon": "link",
     "description": ""
   },
   "options": {},
   "attributes": {
     "label": {
-      "type": "string"
-    },
-    "icon": {
       "type": "string"
     },
     "href": {
