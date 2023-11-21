@@ -14,6 +14,12 @@
   "attributes": {
     "logo": {
       "type": "string"
+    },
+    "socials": {
+      "displayName": "socials",
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.socials"
     }
   }
 }

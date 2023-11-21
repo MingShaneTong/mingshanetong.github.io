@@ -690,6 +690,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
   };
   attributes: {
     logo: Attribute.String;
+    socials: Attribute.Component<'footer.socials', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

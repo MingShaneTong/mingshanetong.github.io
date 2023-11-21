@@ -1,6 +1,7 @@
 export interface Navbar {
-  logo: string;
+  id: number;
   attributes: {
+    logo: string;
     navItems: NavItem[];
   }
 }

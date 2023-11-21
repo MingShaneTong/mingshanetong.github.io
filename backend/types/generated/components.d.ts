@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface FooterSocials extends Schema.Component {
+  collectionName: 'components_footer_socials';
+  info: {
+    displayName: 'social';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    icon: Attribute.String;
+    href: Attribute.String;
+  };
+}
+
 export interface NavbarNavItem extends Schema.Component {
   collectionName: 'components_navigation_nav_items';
   info: {
@@ -44,6 +58,7 @@ export interface PostText extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'footer.socials': FooterSocials;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
       'post.text': PostText;

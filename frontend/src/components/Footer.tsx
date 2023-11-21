@@ -1,5 +1,7 @@
 'use client'
 
+import IconMapper from '@/app/helpers/IconMapper'
+import { Footer } from '@/models/Footer'
 import {
   Box,
   chakra,
@@ -10,8 +12,8 @@ import {
   VisuallyHidden,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { ReactNode } from 'react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import React, { ReactNode } from 'react'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 
 const Logo = (props: any) => {
   return (
@@ -67,7 +69,7 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export default function LargeWithNewsletter() {
+export default function LargeWithNewsletter({ data }: { data: Footer }) {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
@@ -80,17 +82,12 @@ export default function LargeWithNewsletter() {
             <Box>
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
-            <Text fontSize={'sm'}>© 2022 Chakra Templates. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
-                <FaTwitter />
-              </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
-                <FaYoutube />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
-              </SocialButton>
+              {data.attributes.socials.map((social, index) => 
+                <SocialButton key={index} label={social.label} href={social.href}>
+                  {IconMapper(social.icon)}
+                </SocialButton>
+              )}
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
