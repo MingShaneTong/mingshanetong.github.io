@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_navigation_nav_items",
+  "info": {
+    "displayName": "NavItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.sub-nav-item"
+    }
+  }
+}
