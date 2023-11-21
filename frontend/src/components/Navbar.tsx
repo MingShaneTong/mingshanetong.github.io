@@ -15,15 +15,16 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-} from '@chakra-ui/icons'
+} from '@chakra-ui/icons';
+import { Navbar, NavItem, SubNavItem } from '@/models/Navbar';
 
-export default function WithSubnavigation() {
+export default function WithSubnavigation({ data }: { data: Navbar }) {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -58,7 +59,7 @@ export default function WithSubnavigation() {
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            <DesktopNav />
+            <DesktopNav data={data} />
           </Flex>
         </Flex>
 
@@ -87,20 +88,20 @@ export default function WithSubnavigation() {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileNav data={data} />
       </Collapse>
     </Box>
   )
 }
 
-const DesktopNav = () => {
+const DesktopNav = ({ data }: { data: Navbar }) => {
   const linkColor = useColorModeValue('gray.600', 'gray.200')
   const linkHoverColor = useColorModeValue('gray.800', 'white')
   const popoverContentBgColor = useColorModeValue('white', 'gray.800')
 
   return (
     <Stack direction={'row'} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {data.attributes.navItems.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
@@ -119,7 +120,7 @@ const DesktopNav = () => {
               </Box>
             </PopoverTrigger>
 
-            {navItem.children && (
+            {navItem.children && navItem.children.length > 0 && (
               <PopoverContent
                 border={0}
                 boxShadow={'xl'}
@@ -141,7 +142,7 @@ const DesktopNav = () => {
   )
 }
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }: SubNavItem) => {
   return (
     <Box
       as="a"
@@ -176,10 +177,10 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   )
 }
 
-const MobileNav = () => {
+const MobileNav = ({ data }: { data: Navbar }) => {
   return (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-      {NAV_ITEMS.map((navItem) => (
+      {data.attributes.navItems.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -188,9 +189,10 @@ const MobileNav = () => {
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure()
+  let hasChildren = children && children.length > 0;
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={hasChildren ? onToggle : undefined}>
       <Box
         py={2}
         as="a"
@@ -203,7 +205,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
         </Text>
-        {children && (
+        {hasChildren && (
           <Icon
             as={ChevronDownIcon}
             transition={'all .25s ease-in-out'}
@@ -233,51 +235,3 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     </Stack>
   )
 }
-
-interface NavItem {
-  label: string
-  subLabel?: string
-  children?: Array<NavItem>
-  href?: string
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: 'Inspiration',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'Hire Designers',
-    href: '#',
-  },
-]

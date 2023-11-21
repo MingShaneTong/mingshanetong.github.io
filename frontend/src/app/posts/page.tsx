@@ -1,15 +1,11 @@
 import axios from "axios";
 import { Box, Heading, Text } from "@chakra-ui/layout";
 import qs from 'qs';
-import { apiUrl } from "@/config/api.ts"
-import { Post } from "@/models/Post.ts";
 import Link from 'next/link'
 
-
-interface Response {
-  data: Post[];
-  meta: any;
-}
+import { apiUrl } from "@/config/api.ts"
+import { Post } from "@/models/Post.ts";
+import Response from "@/models/api/Response";
 
 const getPosts = async () => {
   const query = qs.stringify(
@@ -26,7 +22,7 @@ const getPosts = async () => {
       Accept: "application/json",
     },
   });
-  const data: Response = response.data;
+  const data: Response<Post[]> = response.data;
   return data;
 };
 
