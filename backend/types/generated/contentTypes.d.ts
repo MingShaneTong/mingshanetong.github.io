@@ -721,7 +721,7 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
   };
   attributes: {
     logo: Attribute.String;
-    navItems: Attribute.Component<'navigation.nav-item', true>;
+    navItems: Attribute.Component<'navbar.nav-item', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -753,7 +753,7 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    content: Attribute.Component<'article.text', true>;
+    content: Attribute.Component<'post.text', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

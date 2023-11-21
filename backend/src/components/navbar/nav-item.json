@@ -16,7 +16,7 @@
     "children": {
       "type": "component",
       "repeatable": true,
-      "component": "navigation.sub-nav-item"
+      "component": "navbar.sub-nav-item"
     }
   }
 }

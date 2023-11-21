@@ -18,7 +18,7 @@
     "navItems": {
       "type": "component",
       "repeatable": true,
-      "component": "navigation.nav-item"
+      "component": "navbar.nav-item"
     }
   }
 }

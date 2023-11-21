@@ -18,7 +18,7 @@
     "content": {
       "type": "component",
       "repeatable": true,
-      "component": "article.text"
+      "component": "post.text"
     }
   }
 }
