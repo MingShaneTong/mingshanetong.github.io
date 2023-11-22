@@ -12,13 +12,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "logo": {
-      "type": "string"
-    },
     "navItems": {
       "type": "component",
       "repeatable": true,
       "component": "navbar.nav-item"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sitename": {
+      "type": "string"
     }
   }
 }

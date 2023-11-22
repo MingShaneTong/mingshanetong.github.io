@@ -5,7 +5,7 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
+  Image,
   Stack,
   Collapse,
   Icon,
@@ -16,6 +16,8 @@ import {
   useBreakpointValue,
   useDisclosure,
   Container,
+  HStack,
+  Center,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -24,10 +26,12 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import { Navbar, NavItem, SubNavItem } from '@/models/Navbar';
+import { apiUrl } from '@/config/api';
 
 export default function WithSubnavigation({ data }: { data: Navbar }) {
   const { isOpen, onToggle } = useDisclosure()
-
+  let logo = data.attributes.logo.data;
+  
   return (
     <Box
       borderBottom={1}
@@ -38,7 +42,7 @@ export default function WithSubnavigation({ data }: { data: Navbar }) {
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         maxW={'8xl'}
-        minH={'60px'}
+        minH={'min'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         justify={'center'}
@@ -55,12 +59,18 @@ export default function WithSubnavigation({ data }: { data: Navbar }) {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            Logo
-          </Text>
+          <HStack>
+            <Image 
+              src={apiUrl + logo.attributes.url} 
+              alt={logo.attributes.alternativeText} 
+              width={10}
+              height={10} />
+            <Text
+              fontFamily={'heading'}
+              color={useColorModeValue('gray.800', 'white')}>
+              {data.attributes.sitename}
+            </Text>
+          </HStack>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav data={data} />
@@ -92,19 +102,22 @@ const DesktopNav = ({ data }: { data: Navbar }) => {
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Box
-                as="a"
-                p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: 'none',
-                  color: linkHoverColor,
-                }}>
-                {navItem.label}
-              </Box>
+              <Center>
+                <Box
+                  as="a"
+                  p={2}
+                  href={navItem.href ?? '#'}
+                  fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: linkHoverColor,
+                  }}>
+                  {navItem.label}
+                </Box>
+              </Center>
+              
             </PopoverTrigger>
 
             {navItem.children && navItem.children.length > 0 && (

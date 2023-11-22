@@ -689,9 +689,10 @@ export interface ApiFooterFooter extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    logo: Attribute.String;
     socials: Attribute.Component<'footer.socials', true>;
     links: Attribute.Component<'footer.link', true>;
+    logo: Attribute.Media;
+    sitename: Attribute.String;
     footerText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -723,8 +724,9 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    logo: Attribute.String;
     navItems: Attribute.Component<'navbar.nav-item', true>;
+    logo: Attribute.Media;
+    sitename: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1,8 +1,13 @@
+import { Media } from "@/models/Media";
+
 export interface Footer {
   id: number;
   attributes: {
-    logo: string;
-    footerText: string;
+    sitename: String;
+    logo: {
+      data: Media;
+    };
+    footerText: String;
     socials: Social[];
     links: Link[];
   }
