@@ -66,7 +66,7 @@ export default function SmallCentered({ data }: { data: Footer }) {
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
         as={Stack}
-        maxW={'6xl'}
+        maxW={'8xl'}
         py={4}
         spacing={4}
         justify={'center'}
@@ -87,7 +87,7 @@ export default function SmallCentered({ data }: { data: Footer }) {
         borderColor={useColorModeValue('gray.200', 'gray.700')}>
         <Container
           as={Stack}
-          maxW={'6xl'}
+          maxW={'8xl'}
           py={4}
           direction={{ base: 'column', md: 'row' }}
           spacing={4}

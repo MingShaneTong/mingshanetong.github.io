@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Container,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -28,16 +29,19 @@ export default function WithSubnavigation({ data }: { data: Navbar }) {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box>
+    <Box
+      borderBottom={1}
+      borderStyle={'solid'}
+      borderColor={useColorModeValue('gray.200', 'gray.900')}>
       <Flex
+        as={Container}
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
+        maxW={'8xl'}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        justify={'center'}
         align={'center'}>
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -62,6 +66,12 @@ export default function WithSubnavigation({ data }: { data: Navbar }) {
             <DesktopNav data={data} />
           </Flex>
         </Flex>
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={'flex-end'}
+          direction={'row'}
+          spacing={6}>
+        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
