@@ -53,7 +53,6 @@ const getFooterData = async () => {
 export default async function Template({ children }: { children: React.ReactNode }) {
   let navData = await getNavData();
   let footerData = await getFooterData();
-  console.log(footerData);
 
   return (
     <>
