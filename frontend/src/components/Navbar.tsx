@@ -33,16 +33,13 @@ export default function WithSubnavigation({ data }: { data: Navbar }) {
   let logo = data.attributes.logo.data;
   
   return (
-    <Box
-      borderBottom={1}
-      borderStyle={'solid'}
-      borderColor={useColorModeValue('gray.200', 'gray.900')}>
+    <Box>
       <Flex
         as={Container}
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
-        maxW={'8xl'}
-        minH={'min'}
+        maxW={'7xl'}
+        minH={'80px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         justify={'center'}
@@ -72,7 +69,7 @@ export default function WithSubnavigation({ data }: { data: Navbar }) {
             </Text>
           </HStack>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <Flex display={{ base: 'none', md: 'flex' }}  justify={'flex-center'} ml={10}>
             <DesktopNav data={data} />
           </Flex>
         </Flex>
@@ -204,16 +201,17 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}>
         <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
+          {hasChildren && (
+            <Icon
+              as={ChevronDownIcon}
+              transition={'all .25s ease-in-out'}
+              transform={isOpen ? 'rotate(180deg)' : ''}
+              w={6}
+              h={6}
+            />
+          )}
         </Text>
-        {hasChildren && (
-          <Icon
-            as={ChevronDownIcon}
-            transition={'all .25s ease-in-out'}
-            transform={isOpen ? 'rotate(180deg)' : ''}
-            w={6}
-            h={6}
-          />
-        )}
+        
       </Box>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
