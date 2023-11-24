@@ -18,7 +18,19 @@
     "content": {
       "type": "component",
       "repeatable": true,
-      "component": "article.text"
+      "component": "post.text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Life",
+        "Coding",
+        "Engineering",
+        "Learning"
+      ]
+    },
+    "snippet": {
+      "type": "text"
     }
   }
 }

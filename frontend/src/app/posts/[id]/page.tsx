@@ -1,15 +1,12 @@
 import axios from "axios";
 import ReactMarkdown from 'react-markdown';
-import { Box, Heading, Text } from "@chakra-ui/layout";
+import { Box, Heading } from "@chakra-ui/layout";
 import rehypeRaw from 'rehype-raw';
-import { apiUrl } from "@/config/api.ts";
 import qs from 'qs';
-import { Post, Text as PostText } from "@/models/Post";
 
-interface Response {
-  data: Post;
-  meta: any;
-}
+import { apiUrl } from "@/config/api.ts";
+import { Post, Text as PostText } from "@/models/Post";
+import Response from "@/models/api/Response";
 
 const getPostData = async (id: number) => {
   const query = qs.stringify(
@@ -26,7 +23,7 @@ const getPostData = async (id: number) => {
       Accept: "application/json",
     },
   });
-  const data: Response = response.data;
+  const data: Response<Post> = response.data;
   return data;
 };
 
