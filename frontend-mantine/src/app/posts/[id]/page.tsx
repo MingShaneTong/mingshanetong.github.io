@@ -20,7 +20,6 @@ const IndexView = async ({ params }: { params: { id: number } }) => {
 };
 
 const TextView = ({ text }: { text: PostText }) => {
-  console.log(text);
   let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
   return (
     <ReactMarkdown rehypePlugins={rehypePlugins}>
