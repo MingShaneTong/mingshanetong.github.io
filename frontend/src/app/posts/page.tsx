@@ -1,50 +1,62 @@
-import axios from "axios";
-import { Box, Heading, Text } from "@chakra-ui/layout";
-import qs from 'qs';
-import Link from 'next/link'
-
-import { apiUrl } from "@/config/api.ts"
-import { Post } from "@/models/Post.ts";
-import Response from "@/models/api/Response";
-import ArticleItem from "@/components/posts/ArticleItem";
-import { Container, SimpleGrid } from "@chakra-ui/react";
-
-const getPosts = async () => {
-  const query = qs.stringify(
-    {
-      fields: ['title', 'publishedAt', 'category', 'snippet'],
-    },
-    {
-      encodeValuesOnly: true
-    }
-  );
-    console.log(query);
-  const response = await axios.get(`${apiUrl}/api/posts?${query}`, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const data: Response<Post[]> = response.data;
-  return data;
-};
+import { Container, Divider, Group, Paper, Title, Text } from "@mantine/core";
+import { Carousel, CarouselSlide } from '@mantine/carousel';
+import '@mantine/carousel/styles.css';
+import { getPosts } from "@/controllers/postController";
+import { Post } from "@/models/Post";
+import Link from "next/link";
 
 const IndexView = async () => {
   let response = await getPosts();
 
   return (
-    <Box 
-      as={Container}
-      maxW="8xl" 
-      minH="100vh"
-      margin="auto">
-      <Heading marginTop="24px" marginBottom="16px">All Posts</Heading>
-      <SimpleGrid columns={1} spacing='40px'>
-        {response.data.map(
-          (post, index) => 
-            <ArticleItem key={index} data={post}/>)}
-      </SimpleGrid>
-    </Box>
+    <Container>
+      <Title order={1}>Posts</Title>
+      
+      <Divider my="sm" />
+      <Title order={2}>Recommended Articles</Title>
+      <HighlightsCarousel />
+
+      <Divider my="sm" />
+      <Title order={2}>All Posts</Title>
+      {response.data.map(
+        (post, index) => 
+          <ArticleCard key={index} data={post}/>)}
+    </Container>
   );
 };
+
+function HighlightsCarousel() {
+  return (
+    <Carousel slideSize="70%" height={320} slideGap="md" my="lg" loop withIndicators>
+      <CarouselSlide>1</CarouselSlide>
+      <CarouselSlide>2</CarouselSlide>
+      <CarouselSlide>3</CarouselSlide>
+    </Carousel>
+  );
+}
+
+function ArticleCard({ data }: { data: Post }) {
+  let publishedAttribute = data.attributes.publishedAt;
+  let published = publishedAttribute instanceof Date ? publishedAttribute : new Date(publishedAttribute);
+  let options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: 'numeric'}
+  let date = published.toLocaleDateString("en-GB", options);
+
+  return (
+    <Paper withBorder radius="md" p="xs" my="md">
+      <Group>
+        <div>
+          <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
+            {date}
+          </Text>
+          <Text fw={700} size="xl">
+            <Link href={`/posts/${data.id}`}>
+              {data.attributes.title}
+            </Link>
+          </Text>
+        </div>
+      </Group>
+    </Paper>
+  );
+}
 
 export default IndexView;

@@ -7,7 +7,6 @@ export interface Post {
     publishedAt: string | Date;
     content: Text[];
     category: string;
-    snippet: string;
   };
 };
 
