@@ -12,12 +12,12 @@ const IndexView = async () => {
     <Container>
       <Title order={1}>Posts</Title>
       
-      <Divider my="sm" />
+      {/* <Divider my="sm" />
       <Title order={2}>Recommended Articles</Title>
       <HighlightsCarousel />
 
       <Divider my="sm" />
-      <Title order={2}>All Posts</Title>
+      <Title order={2}>All Posts</Title> */}
       {response.data.map(
         (post, index) => 
           <ArticleCard key={index} data={post}/>)}
