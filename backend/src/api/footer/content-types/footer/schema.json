@@ -18,11 +18,6 @@
       "repeatable": true,
       "component": "footer.socials"
     },
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "footer.link"
-    },
     "logo": {
       "type": "media",
       "multiple": false,
@@ -35,9 +30,6 @@
       ]
     },
     "sitename": {
-      "type": "string"
-    },
-    "footerText": {
       "type": "string"
     }
   }

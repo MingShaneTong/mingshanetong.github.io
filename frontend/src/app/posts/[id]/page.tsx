@@ -1,44 +1,23 @@
-import axios from "axios";
+import { Box, Container, Title, TypographyStylesProvider } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
-import { Box, Heading } from "@chakra-ui/layout";
 import rehypeRaw from 'rehype-raw';
-import qs from 'qs';
-
-import { apiUrl } from "@/config/api.ts";
-import { Post, Text as PostText } from "@/models/Post";
-import Response from "@/models/api/Response";
-
-const getPostData = async (id: number) => {
-  const query = qs.stringify(
-    {
-      populate: ['content']
-    },
-    {
-      encodeValuesOnly: true
-    }
-  );
-
-  const response = await axios.get(`${apiUrl}/api/posts/${id}?${query}`, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const data: Response<Post> = response.data;
-  return data;
-};
+import { Text as PostText } from "@/models/Post";
+import { getPostData } from '@/controllers/postController';
 
 const IndexView = async ({ params }: { params: { id: number } }) => {
   let response = await getPostData(params.id);
   let content = response.data.attributes.content;
 
   return (
-    <Box height="100vh" padding="10">
-      <Heading as='h1' size='xl'>{response.data.attributes.title}</Heading>
-      {content.map(
-        (text, index) => 
-          <TextView key={index} text={text}/>
-      )}
-    </Box>
+    <TypographyStylesProvider>
+      <Container>
+        <Title order={1} size="4rem" mb={16}>{response.data.attributes.title}</Title>
+        {content.map(
+          (text, index) => 
+            <TextView key={index} text={text}/>
+        )}
+      </Container>
+    </TypographyStylesProvider>
   );
 };
 

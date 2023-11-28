@@ -1,18 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface FooterLink extends Schema.Component {
-  collectionName: 'components_footer_links';
-  info: {
-    displayName: 'Link';
-    icon: 'link';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    href: Attribute.String;
-  };
-}
-
 export interface FooterSocials extends Schema.Component {
   collectionName: 'components_footer_socials';
   info: {
@@ -22,8 +9,8 @@ export interface FooterSocials extends Schema.Component {
   };
   attributes: {
     label: Attribute.String;
-    icon: Attribute.String;
     href: Attribute.String;
+    icon: Attribute.Media;
   };
 }
 
@@ -71,7 +58,6 @@ export interface PostText extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'footer.link': FooterLink;
       'footer.socials': FooterSocials;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
