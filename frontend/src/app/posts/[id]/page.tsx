@@ -1,4 +1,4 @@
-import { Container, Title } from '@mantine/core';
+import { Box, Container, Title, TypographyStylesProvider } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { Text as PostText } from "@/models/Post";
@@ -9,13 +9,15 @@ const IndexView = async ({ params }: { params: { id: number } }) => {
   let content = response.data.attributes.content;
 
   return (
-    <Container>
-      <Title order={1}>{response.data.attributes.title}</Title>
-      {content.map(
-        (text, index) => 
-          <TextView key={index} text={text}/>
-      )}
-    </Container>
+    <TypographyStylesProvider>
+      <Container>
+        <Title order={1} size="4rem" mb={16}>{response.data.attributes.title}</Title>
+        {content.map(
+          (text, index) => 
+            <TextView key={index} text={text}/>
+        )}
+      </Container>
+    </TypographyStylesProvider>
   );
 };
 

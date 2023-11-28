@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import "@mantine/core/styles.css";
-import { ColorSchemeScript, MantineProvider } from '@mantine/core'
-import { theme } from "@/theme";
+import { ColorSchemeScript } from '@mantine/core'
 import './globals.css'
+import Provider from './Provider';
 
 require('dotenv').config()
 
@@ -26,9 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode[] }
         />
       </head>
       <body className={inter.className}>
-        <MantineProvider theme={theme}>
+        <Provider>
           {children}
-        </MantineProvider>
+        </Provider>
       </body>
     </html>
   )
