@@ -25,6 +25,32 @@ export const getPosts = async () => {
   return data;
 };
 
+export const getRecommendedPosts = async () => {
+  const query = qs.stringify(
+    {
+      fields: ['title', 'publishedAt', 'recommended'],
+      populate: ['coverImage'],
+      sort: { publishedAt: 'desc' },
+      filters: {
+        recommended: {
+          $eq: true
+        }
+      } 
+    },
+    {
+      encodeValuesOnly: true
+    }
+  );
+  
+  const response = await axios.get(`${apiUrl}/api/posts?${query}`, {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  const data: Response<Post[]> = response.data;
+  return data;
+};
+
 export const getPostData = async (id: number) => {
   const query = qs.stringify(
     {

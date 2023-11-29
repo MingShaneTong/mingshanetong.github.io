@@ -1,3 +1,5 @@
+import { Media } from "@/models/Media";
+
 export interface Post {
   id: number;
   attributes: {
@@ -8,6 +10,9 @@ export interface Post {
     content: Text[];
     category: string;
     recommended: boolean;
+    coverImage: {
+      data: Media;
+    };
   };
 };
 

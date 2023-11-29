@@ -1,14 +1,15 @@
-import { Container, Divider, Group, Paper, Title, Text } from "@mantine/core";
+import { Container, Divider, Group, Paper, Title, Text, Button } from "@mantine/core";
 import { Carousel, CarouselSlide } from '@mantine/carousel';
-import { IconStar } from '@tabler/icons-react';
-import '@mantine/carousel/styles.css';
-import { getPosts } from "@/controllers/postController";
-import { Post } from "@/models/Post";
 import Link from "next/link";
+import '@mantine/carousel/styles.css';
+import { getPosts, getRecommendedPosts } from "@/controllers/postController";
+import { Post } from "@/models/Post";
+import api from "@/config/api";
+import styles from "./page.module.css";
 
 const IndexView = async () => {
   let response = await getPosts();
-  let recommended = response.data.filter((post) => post.attributes.recommended);
+  let recommended = await getRecommendedPosts();
 
   return (
     <Container>
@@ -16,7 +17,7 @@ const IndexView = async () => {
       
       <Divider my="sm" />
       <Title order={2}>Recommended Articles</Title>
-      <HighlightsCarousel data={recommended} />
+      <HighlightsCarousel data={recommended.data} />
 
       <Divider my="sm" />
       <Title order={2}>All Posts</Title>
@@ -29,11 +30,40 @@ const IndexView = async () => {
 
 function HighlightsCarousel({ data }: { data: Post[] }) {
   return (
-    <Carousel slideSize="70%" height={320} slideGap="md" my="lg" loop withIndicators>
-      <CarouselSlide>1</CarouselSlide>
-      <CarouselSlide>2</CarouselSlide>
-      <CarouselSlide>3</CarouselSlide>
+    <Carousel slideSize="80%" height={360} slideGap="md" my="lg" loop withIndicators>
+      {data.map((post) => {
+        return (
+          <CarouselSlide key={post.id}>
+            <Card data={post} />
+          </CarouselSlide>
+        );
+      })}
     </Carousel>
+  );
+}
+
+function Card({ data }: { data: Post }) {
+  return (
+    <Paper
+      shadow="md"
+      p="xl"
+      radius="md"
+      style={{ 
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${api}${data.attributes.coverImage.data.attributes.url})` 
+      }}
+      className={styles.card}
+    >
+      <div>
+        <Title order={3} className={styles.title}>
+          {data.attributes.title}
+        </Title>
+      </div>
+      <Button variant="white" color="dark">
+        <Link href={`/posts/${data.id}`}>
+          Read article
+        </Link>
+      </Button>
+    </Paper>
   );
 }
 

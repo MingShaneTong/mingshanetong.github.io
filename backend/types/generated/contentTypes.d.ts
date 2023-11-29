@@ -758,6 +758,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     title: Attribute.String;
     content: Attribute.Component<'post.text', true>;
     recommended: Attribute.Boolean;
+    coverImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
