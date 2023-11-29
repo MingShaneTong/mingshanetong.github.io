@@ -3,12 +3,9 @@
 import {
   HoverCard,
   Group,
-  Button,
   UnstyledButton,
   Text,
   SimpleGrid,
-  ThemeIcon,
-  Anchor,
   Divider,
   Center,
   Box,

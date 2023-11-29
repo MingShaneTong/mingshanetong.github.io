@@ -1,4 +1,4 @@
-import { Box, Container, Title, TypographyStylesProvider } from '@mantine/core';
+import { Container, Title, TypographyStylesProvider } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { Text as PostText } from "@/models/Post";

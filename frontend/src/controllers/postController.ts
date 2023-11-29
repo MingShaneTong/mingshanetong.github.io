@@ -8,7 +8,34 @@ import { Post } from "@/models/Post";
 export const getPosts = async () => {
   const query = qs.stringify(
     {
-      fields: ['title', 'publishedAt', 'category', 'snippet'],
+      fields: ['title', 'publishedAt', 'recommended'],
+      sort: { publishedAt: 'desc' }
+    },
+    {
+      encodeValuesOnly: true
+    }
+  );
+  
+  const response = await axios.get(`${apiUrl}/api/posts?${query}`, {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  const data: Response<Post[]> = response.data;
+  return data;
+};
+
+export const getRecommendedPosts = async () => {
+  const query = qs.stringify(
+    {
+      fields: ['title', 'publishedAt', 'recommended'],
+      populate: ['coverImage'],
+      sort: { publishedAt: 'desc' },
+      filters: {
+        recommended: {
+          $eq: true
+        }
+      } 
     },
     {
       encodeValuesOnly: true

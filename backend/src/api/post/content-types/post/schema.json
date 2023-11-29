@@ -20,17 +20,18 @@
       "repeatable": true,
       "component": "post.text"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Life",
-        "Coding",
-        "Engineering",
-        "Learning"
-      ]
+    "recommended": {
+      "type": "boolean"
     },
-    "snippet": {
-      "type": "text"
+    "coverImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
