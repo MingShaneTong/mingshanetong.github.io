@@ -7,6 +7,7 @@ export interface Post {
     publishedAt: string | Date;
     content: Text[];
     category: string;
+    recommended: boolean;
   };
 };
 

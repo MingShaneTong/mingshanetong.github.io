@@ -757,10 +757,7 @@ export interface ApiPostPost extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     content: Attribute.Component<'post.text', true>;
-    category: Attribute.Enumeration<
-      ['Life', 'Coding', 'Engineering', 'Learning']
-    >;
-    snippet: Attribute.Text;
+    recommended: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

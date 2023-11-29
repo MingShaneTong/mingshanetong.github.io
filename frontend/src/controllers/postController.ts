@@ -8,7 +8,8 @@ import { Post } from "@/models/Post";
 export const getPosts = async () => {
   const query = qs.stringify(
     {
-      fields: ['title', 'publishedAt', 'category', 'snippet'],
+      fields: ['title', 'publishedAt', 'recommended'],
+      sort: { publishedAt: 'desc' }
     },
     {
       encodeValuesOnly: true

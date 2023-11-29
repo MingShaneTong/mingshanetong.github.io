@@ -1,5 +1,6 @@
 import { Container, Divider, Group, Paper, Title, Text } from "@mantine/core";
 import { Carousel, CarouselSlide } from '@mantine/carousel';
+import { IconStar } from '@tabler/icons-react';
 import '@mantine/carousel/styles.css';
 import { getPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
@@ -7,17 +8,18 @@ import Link from "next/link";
 
 const IndexView = async () => {
   let response = await getPosts();
+  let recommended = response.data.filter((post) => post.attributes.recommended);
 
   return (
     <Container>
       <Title order={1}>Posts</Title>
       
-      {/* <Divider my="sm" />
+      <Divider my="sm" />
       <Title order={2}>Recommended Articles</Title>
-      <HighlightsCarousel />
+      <HighlightsCarousel data={recommended} />
 
       <Divider my="sm" />
-      <Title order={2}>All Posts</Title> */}
+      <Title order={2}>All Posts</Title>
       {response.data.map(
         (post, index) => 
           <ArticleCard key={index} data={post}/>)}
@@ -25,7 +27,7 @@ const IndexView = async () => {
   );
 };
 
-function HighlightsCarousel() {
+function HighlightsCarousel({ data }: { data: Post[] }) {
   return (
     <Carousel slideSize="70%" height={320} slideGap="md" my="lg" loop withIndicators>
       <CarouselSlide>1</CarouselSlide>
@@ -42,7 +44,12 @@ function ArticleCard({ data }: { data: Post }) {
   let date = published.toLocaleDateString("en-GB", options);
 
   return (
-    <Paper withBorder radius="md" p="xs" my="md">
+    <Paper 
+      withBorder 
+      radius="md" 
+      p="xs" 
+      my="md" 
+      bg={data.attributes.recommended ? "yellow.0" : ""}>
       <Group>
         <div>
           <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
