@@ -30,9 +30,11 @@ export default function HeaderMegaMenu({ data }: { data: Navbar }) {
     <Box pb={60}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <MantineLogo size={30} />
+          <Group justify="left">
+            <MantineLogo size={30} width={120} />
+          </Group>
 
-          <Group h="100%" gap={0} visibleFrom="sm">
+          <Group h="100%" gap={0} justify="flex-start" visibleFrom="sm">
             {data.attributes.navItems.map((item) => {
               return (
                 <NavItemElement key={item.label} data={item} />
@@ -40,7 +42,8 @@ export default function HeaderMegaMenu({ data }: { data: Navbar }) {
             })}
           </Group>
 
-          <Group visibleFrom="sm">
+          <Group justify="flex-end" visibleFrom="sm">
+            <Box style={{ width: 120 }} />
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

@@ -10,6 +10,7 @@ export interface Post {
     content: Text[];
     category: string;
     recommended: boolean;
+    project: boolean;
     coverImage: {
       data: Media;
     };
