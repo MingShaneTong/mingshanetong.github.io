@@ -21,22 +21,6 @@
   }
 }
 
-.dark {
-  @mixin dark {
-    display: block;
-  }
-
-  @mixin light {
-    display: none;
-  }
-}
-
-.light {
-  @mixin light {
-    display: block;
-  }
-
-  @mixin dark {
-    display: none;
-  }
+.actionButton {
+  color: var(--mantine-color-light-5)
 }

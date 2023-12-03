@@ -22,3 +22,8 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+
+.recommended {
+  background-color: var(--mantine-color-yellow-4);
+  color: var(--mantine-color-black);
+}

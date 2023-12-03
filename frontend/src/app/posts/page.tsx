@@ -79,7 +79,7 @@ function ArticleCard({ data }: { data: Post }) {
       radius="md" 
       p="xs" 
       my="md" 
-      bg={data.attributes.recommended ? "yellow.0" : ""}>
+      className={data.attributes.recommended ? styles.recommended : ""}>
       <Group>
         <div>
           <Text c="dimmed" size="xs" tt="uppercase" fw={700}>

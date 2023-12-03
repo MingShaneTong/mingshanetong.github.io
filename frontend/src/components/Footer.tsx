@@ -2,16 +2,25 @@
 
 import Link from 'next/link';
 import { Container, Group, ActionIcon } from '@mantine/core';
-import { MantineLogo } from '@mantinex/mantine-logo';
 import { Footer, Social } from '@/models/Footer';
+import LogoModel from '@/models/Logo';
+import LogoElement from "@/components/Logo";
 import classes from './Footer.module.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-export default function Footer({ data }: { data: Footer }) {
+export default function Footer(
+  { data, logo }: 
+  { 
+    data: Footer;
+    logo: LogoModel; 
+  }
+) {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <MantineLogo size={28} />
+          <Group justify="left">
+            <LogoElement logo={logo} />
+          </Group>
         <Group gap={0} className={classes.links} justify="flex-end" wrap="nowrap">
           {data.attributes.socials.map((social) => {
             return (<Social key={social.label} social={social} />);

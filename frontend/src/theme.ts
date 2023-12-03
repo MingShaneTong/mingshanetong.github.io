@@ -20,7 +20,7 @@ export const theme = createTheme({
     brand: colorScheme,
   },
   primaryColor: 'brand',
-  primaryShade: { light: 1, dark: 9 },
+  primaryShade: { light: 0, dark: 9 },
   fontFamily: 'Verdana, sans-serif',
   fontFamilyMonospace: 'Monaco, Courier, monospace',
   headings: {
