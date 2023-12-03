@@ -13,8 +13,6 @@ export interface Footer {
 
 export interface Social {
   label: string;
-  icon: {
-    data: Media;
-  };
+  icon: string;
   href: string;
 }

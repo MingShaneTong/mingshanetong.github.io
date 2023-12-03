@@ -13,12 +13,15 @@ import {
   Drawer,
   Collapse,
   ScrollArea,
+  ActionIcon, 
   rem,
   useMantineTheme,
+  useMantineColorScheme, 
+  useComputedColorScheme
 } from '@mantine/core';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
+import { IconChevronDown, IconSun, IconMoon } from '@tabler/icons-react';
 import classes from './Navbar.module.css';
 import { NavItem, Navbar } from '@/models/Navbar';
 
@@ -43,7 +46,9 @@ export default function HeaderMegaMenu({ data }: { data: Navbar }) {
           </Group>
 
           <Group justify="flex-end" visibleFrom="sm">
-            <Box style={{ width: 120 }} />
+            <Box style={{ width: 120 }}>
+              {/* <ColorSchemeIcon /> */}
+            </Box> 
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -69,6 +74,24 @@ export default function HeaderMegaMenu({ data }: { data: Navbar }) {
         </ScrollArea>
       </Drawer>
     </Box>
+  );
+}
+
+function ColorSchemeIcon() {
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
+
+  return (
+    <ActionIcon
+      onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+      variant="default"
+      size="xl"
+      aria-label="Toggle color scheme"
+    >
+      {computedColorScheme === 'light' ? 
+        <IconSun className={classes.light} stroke={1.5} /> : 
+        <IconMoon className={classes.dark} stroke={1.5} />}
+    </ActionIcon>
   );
 }
 
