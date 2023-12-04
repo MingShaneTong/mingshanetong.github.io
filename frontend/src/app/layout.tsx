@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import "@mantine/core/styles.css";
 import { ColorSchemeScript } from '@mantine/core'
 import './globals.css'
 import Provider from './Provider';
 
 require('dotenv').config()
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',

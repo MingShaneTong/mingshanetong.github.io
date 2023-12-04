@@ -1,6 +1,8 @@
 "use client";
 
 import { MantineColorsTuple, createTheme, rem } from "@mantine/core";
+import { Hind_Vadodara, Hind_Madurai } from 'next/font/google';
+
 
 const colorScheme: MantineColorsTuple = [
   "#eef3ff",
@@ -15,16 +17,25 @@ const colorScheme: MantineColorsTuple = [
   "#364379"
 ];
 
+const hindVadodara = Hind_Vadodara({ 
+  weight: "500",
+  subsets: ["latin"]
+});
+const hindMadurai = Hind_Madurai({ 
+  weight: "400",
+  subsets: ["latin"]
+});
+
 export const theme = createTheme({
   colors: {
     brand: colorScheme,
   },
   primaryColor: 'brand',
   primaryShade: { light: 0, dark: 9 },
-  fontFamily: 'Verdana, sans-serif',
-  fontFamilyMonospace: 'Monaco, Courier, monospace',
+  fontFamily: hindMadurai.style.fontFamily,
   headings: {
-    fontFamily: 'Greycliff CF, sans-serif',
+    fontFamily: hindVadodara.style.fontFamily,
+    fontWeight: hindVadodara.style.fontWeight?.toString(),
     sizes: {
       h1: { 
         fontSize: rem(4 * 16)

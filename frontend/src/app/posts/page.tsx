@@ -58,7 +58,7 @@ function Card({ data }: { data: Post }) {
           {data.attributes.title}
         </Title>
       </div>
-      <Button variant="white" color="dark">
+      <Button variant="white" color="black">
         <Link href={`/posts/${data.id}`}>
           Read article
         </Link>

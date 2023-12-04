@@ -106,7 +106,7 @@ function NavItemElement({ data }: { data: NavItem }) {
       <UnstyledButton className={classes.subLink} key={item.label}>
         <Group wrap="nowrap" align="flex-start">
           <div>
-            <Text size="sm" fw={500}>
+            <Text size="md" fw={500}>
               {item.label}
             </Text>
             <Text size="xs" c="dimmed">
