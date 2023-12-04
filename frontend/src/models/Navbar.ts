@@ -1,12 +1,6 @@
-import { Media } from "@/models/Media";
-
 export interface Navbar {
   id: number;
   attributes: {
-    sitename: String;
-    logo: {
-      data: Media;
-    };
     navItems: NavItem[];
   }
 }

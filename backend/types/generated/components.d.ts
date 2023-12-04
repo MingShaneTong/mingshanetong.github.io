@@ -10,7 +10,7 @@ export interface FooterSocials extends Schema.Component {
   attributes: {
     label: Attribute.String;
     href: Attribute.String;
-    icon: Attribute.Media;
+    icon: Attribute.String;
   };
 }
 

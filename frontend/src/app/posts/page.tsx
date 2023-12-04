@@ -58,7 +58,7 @@ function Card({ data }: { data: Post }) {
           {data.attributes.title}
         </Title>
       </div>
-      <Button variant="white" color="dark">
+      <Button variant="white" color="black">
         <Link href={`/posts/${data.id}`}>
           Read article
         </Link>
@@ -79,7 +79,7 @@ function ArticleCard({ data }: { data: Post }) {
       radius="md" 
       p="xs" 
       my="md" 
-      bg={data.attributes.recommended ? "yellow.0" : ""}>
+      className={data.attributes.recommended ? styles.recommended : ""}>
       <Group>
         <div>
           <Text c="dimmed" size="xs" tt="uppercase" fw={700}>

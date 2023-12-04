@@ -690,7 +690,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
   };
   attributes: {
     socials: Attribute.Component<'footer.socials', true>;
-    logo: Attribute.Media;
     sitename: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -710,6 +709,31 @@ export interface ApiFooterFooter extends Schema.SingleType {
   };
 }
 
+export interface ApiLogoLogo extends Schema.SingleType {
+  collectionName: 'logos';
+  info: {
+    singularName: 'logo';
+    pluralName: 'logos';
+    displayName: 'Logo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    light: Attribute.Media;
+    dark: Attribute.Media;
+    sitename: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::logo.logo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::logo.logo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNavbarNavbar extends Schema.SingleType {
   collectionName: 'navbars';
   info: {
@@ -723,7 +747,6 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
   };
   attributes: {
     navItems: Attribute.Component<'navbar.nav-item', true>;
-    logo: Attribute.Media;
     sitename: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -787,6 +810,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::footer.footer': ApiFooterFooter;
+      'api::logo.logo': ApiLogoLogo;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::post.post': ApiPostPost;
     }

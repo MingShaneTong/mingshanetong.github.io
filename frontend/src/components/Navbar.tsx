@@ -13,27 +13,33 @@ import {
   Drawer,
   Collapse,
   ScrollArea,
+  ActionIcon, 
   rem,
   useMantineTheme,
+  useMantineColorScheme, 
+  useComputedColorScheme
 } from '@mantine/core';
-import { MantineLogo } from '@mantinex/mantine-logo';
 import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
-import classes from './Navbar.module.css';
+import { IconChevronDown, IconSun, IconMoon } from '@tabler/icons-react';
 import { NavItem, Navbar } from '@/models/Navbar';
+import LogoElement from "@/components/Logo";
+import Logo from '@/models/Logo';
+import classes from './Navbar.module.css';
 
-export default function HeaderMegaMenu({ data }: { data: Navbar }) {
+export default function HeaderMegaMenu(
+  { data, logo }: 
+  { 
+    data: Navbar;
+    logo: Logo; 
+  }
+) {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-  const theme = useMantineTheme();
 
   return (
     <Box pb={60}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <Group justify="left">
-            <MantineLogo size={30} width={120} />
-          </Group>
-
+          <LogoElement logo={logo} />
           <Group h="100%" gap={0} justify="flex-start" visibleFrom="sm">
             {data.attributes.navItems.map((item) => {
               return (
@@ -43,7 +49,9 @@ export default function HeaderMegaMenu({ data }: { data: Navbar }) {
           </Group>
 
           <Group justify="flex-end" visibleFrom="sm">
-            <Box style={{ width: 120 }} />
+            <Box style={{ width: 120 }}>
+              <ColorSchemeIcon />
+            </Box> 
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -72,6 +80,24 @@ export default function HeaderMegaMenu({ data }: { data: Navbar }) {
   );
 }
 
+function ColorSchemeIcon() {
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme('light');
+
+  return (
+    <ActionIcon
+      onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+      variant="default"
+      size="xl"
+      aria-label="Toggle color scheme"
+    >
+      {computedColorScheme === 'light' ? 
+        <IconSun className={classes.light} stroke={1.5} /> : 
+        <IconMoon className={classes.dark} stroke={1.5} />}
+    </ActionIcon>
+  );
+}
+
 function NavItemElement({ data }: { data: NavItem }) {
   const theme = useMantineTheme();
 
@@ -80,7 +106,7 @@ function NavItemElement({ data }: { data: NavItem }) {
       <UnstyledButton className={classes.subLink} key={item.label}>
         <Group wrap="nowrap" align="flex-start">
           <div>
-            <Text size="sm" fw={500}>
+            <Text size="md" fw={500}>
               {item.label}
             </Text>
             <Text size="xs" c="dimmed">

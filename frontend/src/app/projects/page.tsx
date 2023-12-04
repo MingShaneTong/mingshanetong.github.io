@@ -1,7 +1,6 @@
-import { AspectRatio, Card, Container, SimpleGrid, Image, Text } from "@mantine/core";
+import { AspectRatio, Card, Container, SimpleGrid, Image, Text, Box } from "@mantine/core";
 import { getProjectPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
-import { theme } from '@/theme.ts';
 import api from "@/config/api";
 import styles from "./page.module.scss";
 
@@ -32,7 +31,9 @@ export function ArticlesCards({ data }: { data: Post }) {
   return (
     <Card key={data.attributes.title} p="md" radius="md" component="a" href={`/posts/${data.id}`} className={styles.card}>
       <AspectRatio ratio={1920 / 1080}>
-        {coverImage == null ? <></>: <Image src={`${api}${coverImage.attributes.url}`} alt={coverImage.attributes.alternativeText} />}
+        {coverImage == null ? 
+          <Box className={styles.placeholder}></Box>: 
+          <Image src={`${api}${coverImage.attributes.url}`} alt={coverImage.attributes.alternativeText} />}
       </AspectRatio>
       <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
         {date}
