@@ -5,7 +5,7 @@ import apiUrl from "@/config/api";
 import Response from "@/models/api/Response";
 import { Navbar } from '@/models/Navbar';
 import { Footer } from '@/models/Footer';
-import { Logo } from '@/models/Logo';
+import Logo from '@/models/Logo';
 
 export const getNavData = async () => {
   const query = qs.stringify(

@@ -39,10 +39,7 @@ export default function HeaderMegaMenu(
     <Box pb={60}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <Group justify="left">
-            <LogoElement logo={logo} />
-          </Group>
-
+          <LogoElement logo={logo} />
           <Group h="100%" gap={0} justify="flex-start" visibleFrom="sm">
             {data.attributes.navItems.map((item) => {
               return (

@@ -18,9 +18,7 @@ export default function Footer(
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-          <Group justify="left">
-            <LogoElement logo={logo} />
-          </Group>
+        <LogoElement logo={logo} />
         <Group gap={0} className={classes.links} justify="flex-end" wrap="nowrap">
           {data.attributes.socials.map((social) => {
             return (<Social key={social.label} social={social} />);
