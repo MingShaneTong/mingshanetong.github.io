@@ -1,23 +1,22 @@
-import { Container, Title, TypographyStylesProvider } from '@mantine/core';
+import { Container, Title } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { Text as PostText } from "@/models/Post";
 import { getPostData } from '@/controllers/postController';
+import styles from "./page.module.css"
 
 const IndexView = async ({ params }: { params: { id: number } }) => {
   let response = await getPostData(params.id);
   let content = response.data.attributes.content;
 
   return (
-    <TypographyStylesProvider>
-      <Container>
-        <Title order={1} size="4rem" mb={16}>{response.data.attributes.title}</Title>
-        {content.map(
-          (text, index) => 
-            <TextView key={index} text={text}/>
-        )}
-      </Container>
-    </TypographyStylesProvider>
+    <Container className={styles.article}>
+      <Title order={1} mb={16} className={`title ${styles.title}`}>{response.data.attributes.title}</Title>
+      {content.map(
+        (text, index) => 
+          <TextView key={index} text={text}/>
+      )}
+    </Container>
   );
 };
 

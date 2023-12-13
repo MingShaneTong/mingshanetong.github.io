@@ -1,7 +1,7 @@
 "use client";
 
 import { MantineColorsTuple, createTheme, rem } from "@mantine/core";
-import { Hind_Vadodara, Hind_Madurai } from 'next/font/google';
+import { Montserrat, Hind_Madurai } from 'next/font/google';
 
 
 const colorScheme: MantineColorsTuple = [
@@ -17,10 +17,11 @@ const colorScheme: MantineColorsTuple = [
   "#364379"
 ];
 
-const hindVadodara = Hind_Vadodara({ 
-  weight: "500",
+const montserrat = Montserrat({ 
+  weight: "700",
   subsets: ["latin"]
 });
+
 const hindMadurai = Hind_Madurai({ 
   weight: "400",
   subsets: ["latin"]
@@ -34,27 +35,16 @@ export const theme = createTheme({
   primaryShade: { light: 0, dark: 9 },
   fontFamily: hindMadurai.style.fontFamily,
   headings: {
-    fontFamily: hindVadodara.style.fontFamily,
-    fontWeight: hindVadodara.style.fontWeight?.toString(),
+    fontFamily: montserrat.style.fontFamily,
     sizes: {
       h1: { 
-        fontSize: rem(4 * 16)
+        fontSize: "28px",
+        fontWeight: "700"
       },
       h2: { 
-        fontSize: rem(2 * 16)
-      },
-      h3: { 
-        fontSize: rem(1.5 * 16)
-      },
-      h4: { 
-        fontSize: rem(1.17 * 16)
-      },
-      h5: { 
-        fontSize: rem(1 * 16)
-      },
-      h6: { 
-        fontSize: rem(0.8 * 16)
-      },
+        fontSize: "24px",
+        fontWeight: "700"
+      }
     }
   }
 });

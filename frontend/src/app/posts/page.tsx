@@ -13,7 +13,7 @@ const IndexView = async () => {
 
   return (
     <Container>
-      <Title order={1}>Posts</Title>
+      <Title order={1} className="title">Posts</Title>
       
       <Divider my="sm" />
       <Title order={2}>Recommended Articles</Title>
@@ -30,7 +30,7 @@ const IndexView = async () => {
 
 function HighlightsCarousel({ data }: { data: Post[] }) {
   return (
-    <Carousel slideSize="80%" height={360} slideGap="md" my="lg" loop withIndicators>
+    <Carousel controlSize={32} my="lg" loop withIndicators>
       {data.map((post) => {
         return (
           <CarouselSlide key={post.id}>
