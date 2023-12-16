@@ -1,12 +1,13 @@
 import { Container, Title } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import { Text as PostText } from "@/models/Post";
+import { notFound } from 'next/navigation'
+import { Post, Text as PostText } from "@/models/Post";
 import { getPostData } from '@/controllers/postController';
 import styles from "./page.module.css"
 
 const IndexView = async ({ params }: { params: { id: number } }) => {
-  let response = await getPostData(params.id);
+  let response = await getPostData(params.id).catch(notFound);
   let content = response.data.attributes.content;
 
   return (
