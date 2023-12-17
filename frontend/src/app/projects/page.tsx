@@ -3,9 +3,15 @@ import { getProjectPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
 import api from "@/config/api";
 import styles from "./page.module.scss";
+import Response from "@/models/api/Response";
 
 export default async function ProjectsView() {
-  var projectArticles = await getProjectPosts();
+  var projectArticles: Response<Post[]>;
+  try {
+    projectArticles = await getProjectPosts();
+  } catch {
+    return <></>;
+  }
 
   return (
     <Container>
