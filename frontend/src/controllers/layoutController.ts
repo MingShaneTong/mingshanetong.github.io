@@ -1,7 +1,6 @@
-import axios from 'axios';
 import qs from 'qs';
 
-import apiUrl from "@/config/api";
+import { BACKEND_API_URL } from "@/config/api";
 import Response from "@/models/api/Response";
 import { Navbar } from '@/models/Navbar';
 import { Footer } from '@/models/Footer';
@@ -21,12 +20,12 @@ export const getNavData = async () => {
     }
   );
 
-  const response = await axios.get(`${apiUrl}/api/navbar?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/navbar?${query}`, {
     headers: {
       Accept: "application/json",
     },
   });
-  const data: Response<Navbar> = response.data;
+  const data: Response<Navbar> = await response.json();
   return data;
 };
 
@@ -45,12 +44,12 @@ export const getFooterData = async () => {
     }
   );
   
-  const response = await axios.get(`${apiUrl}/api/footer?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/footer?${query}`, {
     headers: {
       Accept: "application/json",
     },
   });
-  const data: Response<Footer> = response.data;
+  const data: Response<Footer> = await response.json();
   return data;
 };
 
@@ -65,11 +64,11 @@ export const getLogoData = async () => {
     }
   );
   
-  const response = await axios.get(`${apiUrl}/api/logo?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/logo?${query}`, {
     headers: {
       Accept: "application/json",
     },
   });
-  const data: Response<Logo> = response.data;
+  const data: Response<Logo> = await response.json();
   return data;
 };

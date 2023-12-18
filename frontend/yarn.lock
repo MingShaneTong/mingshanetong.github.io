@@ -2284,7 +2284,7 @@ postcss-nested@^6.0.1:
   dependencies:
     postcss-selector-parser "^6.0.11"
 
-postcss-preset-mantine@1.11.0:
+postcss-preset-mantine@^1.11.0:
   version "1.11.0"
   resolved "https://registry.npmjs.org/postcss-preset-mantine/-/postcss-preset-mantine-1.11.0.tgz"
   integrity sha512-drhCJAd8Rrn5ulRX5cP6DM6nMLrACAsBU73MfXNI3c77p4dodO36KcfEMY0WqaQkd/E2oODkTm7gVYOzjs45Gw==

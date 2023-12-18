@@ -4,12 +4,20 @@ import Link from "next/link";
 import '@mantine/carousel/styles.css';
 import { getPosts, getRecommendedPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
-import api from "@/config/api";
+import { FRONTEND_API_URL } from "@/config/api";
 import styles from "./page.module.css";
+import Response from "@/models/api/Response";
 
 const IndexView = async () => {
-  let response = await getPosts();
-  let recommended = await getRecommendedPosts();
+  let response: Response<Post[]>;
+  let recommended: Response<Post[]>;
+
+  try {
+    response = await getPosts();
+    recommended = await getRecommendedPosts();
+  } catch {
+    return <></>;
+  }
 
   return (
     <Container>
@@ -49,7 +57,7 @@ function Card({ data }: { data: Post }) {
       p="xl"
       radius="md"
       style={{ 
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${api}${data.attributes.coverImage.data.attributes.url})` 
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${FRONTEND_API_URL}${data.attributes.coverImage.data.attributes.url})` 
       }}
       className={styles.card}
     >
