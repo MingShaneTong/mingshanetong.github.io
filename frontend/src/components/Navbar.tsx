@@ -50,7 +50,7 @@ export default function HeaderMegaMenu(
 
           <Group justify="flex-end" visibleFrom="sm">
             <Box style={{ width: 120 }}>
-              <ColorSchemeIcon />
+              {/* <ColorSchemeIcon /> */}
             </Box> 
           </Group>
 

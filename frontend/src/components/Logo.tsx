@@ -11,10 +11,10 @@ const manrope = Manrope({
 });
 
 export default function LogoComponent({ logo, size = 36 }: { logo: Logo, size?: number }) {
-  const computedColorScheme = useComputedColorScheme('light');
-  var iconStyles = computedColorScheme === "light" ? 
-    [{ display: "block" }, { display: "none" }]: 
-    [{ display: "none" }, { display: "block" }];
+  // const computedColorScheme = useComputedColorScheme('light');
+  // var iconStyles = computedColorScheme === "light" ? 
+  //   [{ display: "block" }, { display: "none" }]: 
+  //   [{ display: "none" }, { display: "block" }];
         
   return (
     <Link href="/">  
@@ -24,15 +24,15 @@ export default function LogoComponent({ logo, size = 36 }: { logo: Logo, size?: 
           width={size}
           height={size} 
           alt={logo.attributes.light.data.attributes.alternativeText}
-          style={iconStyles[0]}
+          // style={iconStyles[0]}
         />
-        <Image 
+        {/* <Image 
           src={FRONTEND_API_URL + logo.attributes.dark.data.attributes.url}
           width={size}
           height={size} 
           alt={logo.attributes.dark.data.attributes.alternativeText}
           style={iconStyles[1]}
-        />
+        /> */}
         <Text style={manrope.style} size="lg">
           {logo.attributes.sitename}
         </Text>
