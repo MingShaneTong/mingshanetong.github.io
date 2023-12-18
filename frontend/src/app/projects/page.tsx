@@ -1,7 +1,7 @@
 import { AspectRatio, Card, Container, SimpleGrid, Image, Text, Box } from "@mantine/core";
 import { getProjectPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
-import api from "@/config/api";
+import { FRONTEND_API_URL } from "@/config/api";
 import styles from "./page.module.scss";
 import Response from "@/models/api/Response";
 
@@ -29,7 +29,7 @@ export default async function ProjectsView() {
               <AspectRatio ratio={1920 / 1080}>
                 {coverImage == null ? 
                   <Box className={styles.placeholder}></Box>: 
-                  <Image src={`${api}${coverImage.attributes.url}`} alt={coverImage.attributes.alternativeText} />}
+                  <Image src={`${FRONTEND_API_URL}${coverImage.attributes.url}`} alt={coverImage.attributes.alternativeText} />}
               </AspectRatio>
               <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
                 {date}

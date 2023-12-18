@@ -1,6 +1,6 @@
 import qs from 'qs';
 
-import apiUrl from "@/config/api";
+import { BACKEND_API_URL } from "@/config/api";
 import Response from "@/models/api/Response";
 import { Post } from "@/models/Post";
 
@@ -15,7 +15,7 @@ export const getPosts = async () => {
     }
   );
   
-  const response = await fetch(`${apiUrl}/api/posts?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/posts?${query}`, {
     headers: {
       Accept: "application/json",
     },
@@ -41,7 +41,7 @@ export const getRecommendedPosts = async () => {
     }
   );
   
-  const response = await fetch(`${apiUrl}/api/posts?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/posts?${query}`, {
     headers: {
       Accept: "application/json",
     },
@@ -67,7 +67,7 @@ export const getProjectPosts = async () => {
     }
   );
   
-  const response = await fetch(`${apiUrl}/api/posts?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/posts?${query}`, {
     headers: {
       Accept: "application/json",
     },
@@ -86,7 +86,7 @@ export const getPostData = async (id: number) => {
     }
   );
 
-  const response = await fetch(`${apiUrl}/api/posts/${id}?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/posts/${id}?${query}`, {
     headers: {
       Accept: "application/json",
     },

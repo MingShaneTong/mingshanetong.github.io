@@ -1,6 +1,6 @@
 import qs from 'qs';
 
-import apiUrl from "@/config/api";
+import { BACKEND_API_URL } from "@/config/api";
 import Response from "@/models/api/Response";
 import { Navbar } from '@/models/Navbar';
 import { Footer } from '@/models/Footer';
@@ -20,7 +20,7 @@ export const getNavData = async () => {
     }
   );
 
-  const response = await fetch(`${apiUrl}/api/navbar?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/navbar?${query}`, {
     headers: {
       Accept: "application/json",
     },
@@ -44,7 +44,7 @@ export const getFooterData = async () => {
     }
   );
   
-  const response = await fetch(`${apiUrl}/api/footer?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/footer?${query}`, {
     headers: {
       Accept: "application/json",
     },
@@ -64,7 +64,7 @@ export const getLogoData = async () => {
     }
   );
   
-  const response = await fetch(`${apiUrl}/api/logo?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/logo?${query}`, {
     headers: {
       Accept: "application/json",
     },
