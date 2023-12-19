@@ -1,11 +1,14 @@
+import { getContactMePageData } from "@/controllers/pageController";
 import { Container, Title } from "@mantine/core";
 
-export default function ContactMe() {
+export default async function ContactMe() {
+  let pageData = await getContactMePageData();
+
   return (
     <Container pt={60}>
       <Title order={1} className="title" mb={32}>Contact Me</Title>
       <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfSqn_5UoSdcKWcyhodI67OSc5NJzanBWBUWlTaerBdt__oyw/viewform?embedded=true" 
+        src={pageData.data.attributes.googleform}
         width="100%" 
         height="1200" 
         frameBorder="0" 

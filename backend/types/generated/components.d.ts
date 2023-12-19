@@ -14,6 +14,15 @@ export interface FooterSocials extends Schema.Component {
   };
 }
 
+export interface HomepageHero extends Schema.Component {
+  collectionName: 'components_homepage_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'dashboard';
+  };
+  attributes: {};
+}
+
 export interface NavbarNavItem extends Schema.Component {
   collectionName: 'components_navigation_nav_items';
   info: {
@@ -59,6 +68,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'footer.socials': FooterSocials;
+      'homepage.hero': HomepageHero;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
       'post.text': PostText;

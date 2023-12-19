@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_me_pages",
+  "info": {
+    "singularName": "contact-me-page",
+    "pluralName": "contact-me-pages",
+    "displayName": "ContactMePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "googleform": {
+      "type": "string"
+    }
+  }
+}
