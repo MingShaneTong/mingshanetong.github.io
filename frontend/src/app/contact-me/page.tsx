@@ -2,7 +2,7 @@ import { Container, Title } from "@mantine/core";
 
 export default function ContactMe() {
   return (
-    <Container>
+    <Container pt={60}>
       <Title order={1} className="title" mb={32}>Contact Me</Title>
       <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLSfSqn_5UoSdcKWcyhodI67OSc5NJzanBWBUWlTaerBdt__oyw/viewform?embedded=true" 
