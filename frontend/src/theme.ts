@@ -5,7 +5,7 @@ import { Montserrat, Hind_Madurai } from 'next/font/google';
 
 
 const colorScheme: MantineColorsTuple = [
-  "#f3f5ff",
+  "#f7f9ff",
   "#dce4f5",
   "#b9c7e2",
   "#94a8d0",
