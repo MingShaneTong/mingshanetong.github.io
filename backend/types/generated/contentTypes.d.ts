@@ -746,12 +746,13 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     singularName: 'home-page';
     pluralName: 'home-pages';
     displayName: 'HomePage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Hero: Attribute.Component<'homepage.hero'>;
+    hero: Attribute.Component<'homepage.hero'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

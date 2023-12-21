@@ -2,8 +2,22 @@
   "collectionName": "components_homepage_heroes",
   "info": {
     "displayName": "Hero",
-    "icon": "dashboard"
+    "icon": "dashboard",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "actions": {
+      "displayName": "actions",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.actions"
+    }
+  }
 }

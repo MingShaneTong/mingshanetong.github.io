@@ -1,12 +1,14 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 import Hero from '@/components/Hero'
 import { Group } from '@mantine/core'
+import { getHomePageData } from '@/controllers/pageController';
 
-export default function Home() {
+export default async function Home() {
+  let pageDataResponse = await getHomePageData();
+  let pageData = pageDataResponse.data.attributes;
+
   return (
-    <Group className={styles.hero}>
-      <Hero />
+    <Group>
+      <Hero data={pageData.hero}/>
     </Group>
   )
 }

@@ -14,13 +14,31 @@ export interface FooterSocials extends Schema.Component {
   };
 }
 
+export interface HomepageActions extends Schema.Component {
+  collectionName: 'components_homepage_actions';
+  info: {
+    displayName: 'action';
+    icon: 'puzzle';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
+    href: Attribute.String;
+  };
+}
+
 export interface HomepageHero extends Schema.Component {
   collectionName: 'components_homepage_heroes';
   info: {
     displayName: 'Hero';
     icon: 'dashboard';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    actions: Attribute.Component<'homepage.actions', true>;
+  };
 }
 
 export interface NavbarNavItem extends Schema.Component {
@@ -68,6 +86,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'footer.socials': FooterSocials;
+      'homepage.actions': HomepageActions;
       'homepage.hero': HomepageHero;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
