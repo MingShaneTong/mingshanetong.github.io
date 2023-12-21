@@ -11,7 +11,7 @@ const IndexView = async ({ params }: { params: { id: number } }) => {
   let content = response.data.attributes.content;
 
   return (
-    <Container className={styles.article} pt={60}>
+    <Container className={styles.article} py={60}>
       <Title order={1} mb={16} className={`title ${styles.title}`}>{response.data.attributes.title}</Title>
       {content.map(
         (text, index) => 

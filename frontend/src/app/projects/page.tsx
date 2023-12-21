@@ -14,7 +14,7 @@ export default async function ProjectsView() {
   }
 
   return (
-    <Container pt={60}>
+    <Container py={60}>
       <SimpleGrid cols={{ base: 1, sm: 2 }}>
         {projectArticles.data.map((data) => {
           let publishedAttribute = data.attributes.publishedAt;

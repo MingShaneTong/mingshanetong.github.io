@@ -5,7 +5,7 @@ export default async function ContactMe() {
   let pageData = await getContactMePageData();
 
   return (
-    <Container pt={60}>
+    <Container py={60}>
       <Title order={1} className="title" mb={32}>Contact Me</Title>
       <iframe 
         src={pageData.data.attributes.googleform}
