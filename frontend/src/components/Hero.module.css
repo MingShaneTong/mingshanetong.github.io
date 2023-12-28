@@ -1,8 +1,18 @@
 .wrapper {
   position: relative;
+  background-color: var(--mantine-color-brand-1);
+  max-width: 100%;
+  width: 100%;
+  
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-top: rem(80px);
+    padding-bottom: rem(60px);
+  }
+}
+
+.center {
   padding-top: rem(120px);
   padding-bottom: rem(80px);
-  background-color: var(--mantine-color-brand-1);
   
   @media (max-width: $mantine-breakpoint-sm) {
     padding-top: rem(80px);
@@ -13,20 +23,6 @@
 .inner {
   position: relative;
   z-index: 1;
-}
-
-.dots {
-  position: absolute;
-  color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
-
-  @media (max-width: $mantine-breakpoint-sm) {
-    display: none;
-  }
-}
-
-.dotsLeft {
-  left: 0;
-  top: 0;
 }
 
 .title {
