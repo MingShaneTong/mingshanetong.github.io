@@ -1,6 +1,7 @@
-import Hero from '@/components/Hero'
+import Hero from '@/components/Home/Hero'
 import { Group } from '@mantine/core'
 import { getHomePageData } from '@/controllers/pageController';
+import AboutMe from '@/components/Home/AboutMe';
 
 export default async function Home() {
   let pageDataResponse = await getHomePageData();
@@ -9,6 +10,11 @@ export default async function Home() {
   return (
     <Group>
       <Hero data={pageData.hero}/>
+      <AboutMe />
+      {/* Interests */}
+      {/* Skills */}
+      {/* Key Achievements */}
+      {/* Work Experience */}
     </Group>
   )
 }
