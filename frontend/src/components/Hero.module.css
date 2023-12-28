@@ -1,6 +1,11 @@
 .wrapper {
   position: relative;
   background-color: var(--mantine-color-brand-1);
+  background-image: 
+    radial-gradient(at 10% 10%, #cddaf2 0px, transparent 50%),
+    radial-gradient(at 90% 90%, #ebebe0 0px, transparent 50%), 
+    radial-gradient(at 89% 20%, rgb(177, 245, 199) 0px, transparent 50%),
+    radial-gradient(at 20% 100%, #dae2f0 0px, transparent 50%);
   max-width: 100%;
   width: 100%;
   
