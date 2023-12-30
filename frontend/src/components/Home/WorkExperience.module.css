@@ -1,0 +1,12 @@
+.card {
+  background: inherit;
+}
+
+.card:hover {
+  background-color: var(--mantine-color-gray-1);
+}
+
+.badge {
+  background-color: var(--mantine-color-brand-2);
+  color: var(--mantine-color-brand-9);
+}

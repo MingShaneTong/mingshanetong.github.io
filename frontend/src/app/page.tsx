@@ -3,6 +3,7 @@ import { Group } from '@mantine/core'
 import { getHomePageData } from '@/controllers/pageController';
 import AboutMe from '@/components/Home/AboutMe';
 import Interests from '@/components/Home/Interests';
+import WorkExperience from '@/components/Home/WorkExperience';
 
 export default async function Home() {
   let pageDataResponse = await getHomePageData();
@@ -15,7 +16,7 @@ export default async function Home() {
       <Interests />
       {/* Skills */}
       {/* Key Achievements */}
-      {/* Work Experience */}
+      <WorkExperience />
     </Group>
   )
 }

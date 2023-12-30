@@ -32,7 +32,7 @@ export const theme = createTheme({
     brand: colorScheme,
   },
   primaryColor: 'brand',
-  primaryShade: { light: 0, dark: 9 },
+  primaryShade: { light: 6, dark: 9 },
   fontFamily: hindMadurai.style.fontFamily,
   headings: {
     fontFamily: montserrat.style.fontFamily,
