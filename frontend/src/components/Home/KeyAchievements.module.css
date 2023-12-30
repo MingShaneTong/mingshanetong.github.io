@@ -1,0 +1,4 @@
+.container {
+  background-color: var(--mantine-color-brand-1);
+  width: 100%;
+}
