@@ -2,7 +2,7 @@
   background: inherit;
 
   @media (max-width: $mantine-breakpoint-md) {
-    padding: 0;
+    padding: 16px 0;
   }
 }
 

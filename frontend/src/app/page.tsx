@@ -17,7 +17,7 @@ export default async function Home() {
       <Hero data={pageData.hero} socials={socialData.data} />
       <Container>
         <AboutMe data={pageData.aboutme} />
-        <WorkExperience />
+        <WorkExperience data={pageData.workexperience} />
         <Interests />
       </Container>
     </Box>

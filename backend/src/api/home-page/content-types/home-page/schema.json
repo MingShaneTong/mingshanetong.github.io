@@ -22,6 +22,12 @@
       "type": "component",
       "repeatable": false,
       "component": "homepage.about-me"
+    },
+    "workexperience": {
+      "displayName": "WorkExperience",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.work-experience"
     }
   }
 }

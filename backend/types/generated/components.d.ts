@@ -41,6 +41,22 @@ export interface HomepageHero extends Schema.Component {
   };
 }
 
+export interface HomepageWorkExperience extends Schema.Component {
+  collectionName: 'components_homepage_work_experiences';
+  info: {
+    displayName: 'WorkExperience';
+    icon: 'briefcase';
+    description: '';
+  };
+  attributes: {
+    line1: Attribute.String;
+    line2: Attribute.String;
+    period: Attribute.String;
+    description: Attribute.Text;
+    tags: Attribute.Text;
+  };
+}
+
 export interface NavbarNavItem extends Schema.Component {
   collectionName: 'components_navigation_nav_items';
   info: {
@@ -102,6 +118,7 @@ declare module '@strapi/types' {
       'homepage.about-me': HomepageAboutMe;
       'homepage.actions': HomepageActions;
       'homepage.hero': HomepageHero;
+      'homepage.work-experience': HomepageWorkExperience;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
       'post.text': PostText;
