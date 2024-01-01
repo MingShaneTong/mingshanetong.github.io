@@ -2,16 +2,16 @@
 
 import Link from 'next/link';
 import { Container, Group, ActionIcon } from '@mantine/core';
-import { Footer, Social } from '@/models/Footer';
+import { Social, SocialItem } from '@/models/Social';
 import LogoModel from '@/models/Logo';
 import LogoElement from "@/components/Logo";
 import classes from './Footer.module.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function Footer(
-  { data, logo }: 
+  { socials, logo }: 
   { 
-    data: Footer;
+    socials: Social;
     logo: LogoModel; 
   }
 ) {
@@ -20,7 +20,7 @@ export default function Footer(
       <Container className={classes.inner}>
         <LogoElement logo={logo} />
         <Group gap={0} className={classes.links} justify="flex-end" wrap="nowrap">
-          {data.attributes.socials.map((social) => {
+          {socials.attributes.socials.map((social) => {
             return (<Social key={social.label} social={social} />);
           })}
         </Group>
@@ -29,7 +29,7 @@ export default function Footer(
   );
 }
 
-function Social({ social }: { social: Social }) {
+function Social({ social }: { social: SocialItem }) {
   return (
     <ActionIcon 
       key={social.label} 
@@ -38,7 +38,7 @@ function Social({ social }: { social: Social }) {
       variant="subtle" 
       size="lg"
       className={classes.actionButton}>
-        <i className={`icon bi-${social.icon}`} />
+        <i className={`icon bi-${social.icon}`} style={{ fontSize: '16px' }} />
     </ActionIcon>
   );
 }

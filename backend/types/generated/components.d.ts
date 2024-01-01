@@ -1,19 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface FooterSocials extends Schema.Component {
-  collectionName: 'components_footer_socials';
-  info: {
-    displayName: 'Social';
-    icon: 'user';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    href: Attribute.String;
-    icon: Attribute.String;
-  };
-}
-
 export interface HomepageActions extends Schema.Component {
   collectionName: 'components_homepage_actions';
   info: {
@@ -82,15 +68,29 @@ export interface PostText extends Schema.Component {
   };
 }
 
+export interface SocialSocials extends Schema.Component {
+  collectionName: 'components_footer_socials';
+  info: {
+    displayName: 'Social';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    href: Attribute.String;
+    icon: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'footer.socials': FooterSocials;
       'homepage.actions': HomepageActions;
       'homepage.hero': HomepageHero;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
       'post.text': PostText;
+      'social.socials': SocialSocials;
     }
   }
 }

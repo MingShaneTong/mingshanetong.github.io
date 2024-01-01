@@ -3,7 +3,7 @@ import qs from 'qs';
 import { BACKEND_API_URL } from "@/config/api";
 import Response from "@/models/api/Response";
 import { Navbar } from '@/models/Navbar';
-import { Footer } from '@/models/Footer';
+import { Social } from '@/models/Social';
 import Logo from '@/models/Logo';
 
 export const getNavData = async () => {
@@ -29,7 +29,7 @@ export const getNavData = async () => {
   return data;
 };
 
-export const getFooterData = async () => {
+export const getSocialData = async () => {
   const query = qs.stringify(
     {
       populate: {
@@ -44,12 +44,12 @@ export const getFooterData = async () => {
     }
   );
   
-  const response = await fetch(`${BACKEND_API_URL}/api/footer?${query}`, {
+  const response = await fetch(`${BACKEND_API_URL}/api/social?${query}`, {
     headers: {
       Accept: "application/json",
     },
   });
-  const data: Response<Footer> = await response.json();
+  const data: Response<Social> = await response.json();
   return data;
 };
 
