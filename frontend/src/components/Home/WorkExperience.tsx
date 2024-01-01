@@ -19,8 +19,8 @@ function Experience({ data }: { data: WEModel }) {
           <Text size="sm">{data.period}</Text>
         </GridCol>
         <GridCol span={10}>
-          <Text fw={700}>{data.line1}</Text>
-          <Text fw={600} c='gray.6'>{data.line2}</Text>
+          <Text component="h3" fw={700}>{data.line1}</Text>
+          <Text component="h4" fw={600} c='gray.6'>{data.line2}</Text>
           <Text size="sm" mt="xs">{data.description}</Text>
           {data.tags ? 
             <Box mt="md">
