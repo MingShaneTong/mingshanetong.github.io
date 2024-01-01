@@ -1,4 +1,4 @@
-import { Box } from '@mantine/core';
+import { Box, Container } from '@mantine/core';
 import { getHomePageData } from '@/controllers/pageController';
 import Hero from '@/components/Home/Hero'
 import AboutMe from '@/components/Home/AboutMe';
@@ -13,9 +13,11 @@ export default async function Home() {
   return (
     <Box className={classes.home}>
       <Hero data={pageData.hero}/>
-      <AboutMe />
-      <WorkExperience />
-      <Interests />
+      <Container>
+        <AboutMe />
+        <WorkExperience />
+        <Interests />
+      </Container>
     </Box>
   )
 }

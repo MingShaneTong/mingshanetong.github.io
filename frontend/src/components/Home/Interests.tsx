@@ -29,17 +29,15 @@ export default function Interests({ data }: { data?: any }) {
   ));
   
   return (
-    <Container size="lg" py={0}>
-      <section>
-        <Title order={1} className={classes.title} ta="center" mt="sm">
-          Integrate effortlessly with any technology stack
-        </Title>
+    <section>
+      <Title order={1} className={classes.title} ta="center" mt="sm">
+        Integrate effortlessly with any technology stack
+      </Title>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
-          {features}
-        </SimpleGrid>
-      </section>
-    </Container>
+      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
+        {features}
+      </SimpleGrid>
+    </section>
   );
 }
 
