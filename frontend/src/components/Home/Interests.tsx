@@ -29,8 +29,8 @@ export default function Interests({ data }: { data?: any }) {
   ));
   
   return (
-    <Center className={classes.container}>
-      <Container size="lg" py={60}>
+    <Container size="lg" py={0}>
+      <section>
         <Title order={1} className={classes.title} ta="center" mt="sm">
           Integrate effortlessly with any technology stack
         </Title>
@@ -38,8 +38,8 @@ export default function Interests({ data }: { data?: any }) {
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
           {features}
         </SimpleGrid>
-      </Container>
-    </Center>
+      </section>
+    </Container>
   );
 }
 

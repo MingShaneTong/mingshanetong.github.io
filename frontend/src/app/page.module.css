@@ -1,0 +1,9 @@
+.home section {
+  padding-top: rem(100px);
+  padding-bottom: rem(100px);
+  
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-top: rem(80px);
+    padding-bottom: rem(80px);
+  }
+}

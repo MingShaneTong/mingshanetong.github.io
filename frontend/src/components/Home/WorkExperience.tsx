@@ -3,9 +3,11 @@ import classes from './WorkExperience.module.css';
 
 export default function WorkExperience({ data }: { data?: any }) {
   return (
-    <Container py={60} size="lg">
-      <Title order={1} mb={16} size={34}>Work Experience</Title>
-      <Experience />
+    <Container size="lg" py={0}>
+      <section>
+        <Title order={1} mb={16} size={34}>Work Experience</Title>
+        <Experience />
+      </section>
     </Container>
   );
 }

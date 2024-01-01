@@ -6,7 +6,7 @@ export default function Hero({ data }: { data: Hero }) {
   return (
     <div className={classes.wrapper}>
       <Center className={classes.center} px="md">
-        <div className={classes.inner}>
+        <section className={classes.inner}>
           <Title className={classes.title}>
             {data.title}
           </Title>
@@ -32,7 +32,7 @@ export default function Hero({ data }: { data: Hero }) {
               );
             })}
           </div>
-        </div>
+        </section>
       </Center>
     </div>
   );

@@ -1,22 +1,21 @@
-import Hero from '@/components/Home/Hero'
-import { Group } from '@mantine/core'
+import { Box } from '@mantine/core';
 import { getHomePageData } from '@/controllers/pageController';
+import Hero from '@/components/Home/Hero'
 import AboutMe from '@/components/Home/AboutMe';
 import Interests from '@/components/Home/Interests';
 import WorkExperience from '@/components/Home/WorkExperience';
-import KeyAchievements from '@/components/Home/KeyAchievements';
+import classes from "./page.module.css";
 
 export default async function Home() {
   let pageDataResponse = await getHomePageData();
   let pageData = pageDataResponse.data.attributes;
 
   return (
-    <>
+    <Box className={classes.home}>
       <Hero data={pageData.hero}/>
       <AboutMe />
-      <Interests />
-      <KeyAchievements />
       <WorkExperience />
-    </>
+      <Interests />
+    </Box>
   )
 }

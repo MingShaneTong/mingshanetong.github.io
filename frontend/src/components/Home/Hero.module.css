@@ -11,17 +11,17 @@
   
   @media (max-width: $mantine-breakpoint-sm) {
     padding-top: rem(80px);
-    padding-bottom: rem(60px);
+    padding-bottom: rem(80px);
   }
 }
 
 .center {
   padding-top: rem(120px);
-  padding-bottom: rem(80px);
+  padding-bottom: rem(120px);
   
   @media (max-width: $mantine-breakpoint-sm) {
     padding-top: rem(80px);
-    padding-bottom: rem(60px);
+    padding-bottom: rem(80px);
   }
 }
 
