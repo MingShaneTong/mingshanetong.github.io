@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface HomepageAboutMe extends Schema.Component {
+  collectionName: 'components_homepage_about_mes';
+  info: {
+    displayName: 'AboutMe';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    welcome: Attribute.String;
+    description: Attribute.Text;
+    achievements: Attribute.Text;
+  };
+}
+
 export interface HomepageActions extends Schema.Component {
   collectionName: 'components_homepage_actions';
   info: {
@@ -85,6 +99,7 @@ export interface SocialSocials extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'homepage.about-me': HomepageAboutMe;
       'homepage.actions': HomepageActions;
       'homepage.hero': HomepageHero;
       'navbar.nav-item': NavbarNavItem;

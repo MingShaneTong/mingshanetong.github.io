@@ -5,6 +5,7 @@ export interface HomePage {
     updatedAt: string | Date;
     publishedAt: string | Date;
     hero: Hero;
+    aboutme: AboutMe;
   };
 };
 
@@ -15,4 +16,10 @@ export interface Hero {
     text: string;
     href: string;
   }[];
+}
+
+export interface AboutMe {
+  welcome: string;
+  description: string;
+  achievements: string;
 }

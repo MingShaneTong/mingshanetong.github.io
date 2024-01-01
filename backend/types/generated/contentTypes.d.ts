@@ -721,6 +721,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
   attributes: {
     hero: Attribute.Component<'homepage.hero'>;
+    aboutme: Attribute.Component<'homepage.about-me'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

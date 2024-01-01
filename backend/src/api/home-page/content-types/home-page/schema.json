@@ -17,6 +17,11 @@
       "type": "component",
       "repeatable": false,
       "component": "homepage.hero"
+    },
+    "aboutme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.about-me"
     }
   }
 }

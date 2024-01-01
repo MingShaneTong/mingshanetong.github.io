@@ -21,7 +21,8 @@ export const getHomePageData = async () => {
       populate: {
         hero: {
           populate: ["actions"]
-        }
+        },
+        aboutme: "*"
       },
     },
     {
@@ -34,5 +35,6 @@ export const getHomePageData = async () => {
     },
   });
   const data: Response<HomePage> = await response.json();
+  console.log(data.data.attributes.aboutme);
   return data;
 };
