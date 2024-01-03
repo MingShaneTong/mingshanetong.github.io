@@ -7,6 +7,7 @@ export interface HomePage {
     hero: Hero;
     aboutme: AboutMe;
     workexperience: WorkExperience[];
+    interests: Interest[];
   };
 };
 
@@ -31,4 +32,10 @@ export interface WorkExperience {
   period: string;
   description: string;
   tags: string;
+}
+
+export interface Interest {
+  title: string;
+  description: string;
+  icon: string;
 }
