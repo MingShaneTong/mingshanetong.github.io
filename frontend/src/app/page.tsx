@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <Box className={classes.home}>
       <Hero data={pageData.hero} socials={socialData.data} />
-      <Container>
+      <Container className={classes.container}>
         <AboutMe data={pageData.aboutme} />
         <WorkExperience data={pageData.workexperience} />
         <Interests data={pageData.interests} />

@@ -7,3 +7,13 @@
     padding-bottom: rem(80px);
   }
 }
+
+.home .container {
+  padding-top: rem(50px);
+  padding-bottom: rem(100px);
+  
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-top: rem(40px);
+    padding-bottom: rem(80px);
+  }
+}
