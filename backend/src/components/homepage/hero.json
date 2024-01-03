@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_homepage_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "actions": {
+      "displayName": "actions",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.actions"
+    }
+  }
+}

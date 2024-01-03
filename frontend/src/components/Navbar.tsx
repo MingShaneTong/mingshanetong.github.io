@@ -36,7 +36,7 @@ export default function HeaderMegaMenu(
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
 
   return (
-    <Box pb={60}>
+    <Box>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <LogoElement logo={logo} />

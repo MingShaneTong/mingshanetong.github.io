@@ -1,11 +1,11 @@
-export interface Footer {
+export interface Social {
   id: number;
   attributes: {
-    socials: Social[];
+    socials: SocialItem[];
   }
 }
 
-export interface Social {
+export interface SocialItem {
   label: string;
   icon: string;
   href: string;

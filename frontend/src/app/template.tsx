@@ -1,20 +1,20 @@
 import NavbarElement from '@/components/Navbar';
 import FooterElement from '@/components/Footer';
-import { getNavData, getFooterData, getLogoData } from '@/controllers/layoutController';
+import { getNavData, getSocialData, getLogoData } from '@/controllers/layoutController';
 import Response from '@/models/api/Response';
 import Logo from '@/models/Logo';
 import { Navbar } from '@/models/Navbar';
-import { Footer } from '@/models/Footer';
+import { Social } from '@/models/Social';
 
 export default async function Template({ children }: { children: React.ReactNode[] }) {
   let logoData: Response<Logo>;
   let navData: Response<Navbar>;
-  let footerData: Response<Footer>;
+  let socialData: Response<Social>;
 
   try {
     logoData = await getLogoData();
     navData = await getNavData();
-    footerData = await getFooterData();
+    socialData = await getSocialData();
   } catch {
     return children;
   }
@@ -23,7 +23,7 @@ export default async function Template({ children }: { children: React.ReactNode
     <>
       <NavbarElement data={navData.data} logo={logoData.data} />
       {children}
-      <FooterElement data={footerData.data} logo={logoData.data} />
+      <FooterElement socials={socialData.data} logo={logoData.data} />
     </>
   );
 }

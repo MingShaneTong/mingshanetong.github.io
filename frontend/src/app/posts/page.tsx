@@ -20,7 +20,7 @@ const IndexView = async () => {
   }
 
   return (
-    <Container>
+    <Container py={60}>
       <Title order={1} className="title">Posts</Title>
       
       <Divider my="sm" />

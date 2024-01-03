@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * footer service
+ * social service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::footer.footer');
+module.exports = createCoreService('api::social.social');

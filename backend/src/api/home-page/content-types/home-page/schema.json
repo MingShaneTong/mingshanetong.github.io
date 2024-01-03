@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "displayName": "Hero",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.hero"
+    },
+    "aboutme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.about-me"
+    },
+    "workexperience": {
+      "displayName": "WorkExperience",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.work-experience"
+    },
+    "interests": {
+      "displayName": "Interest",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.interest"
+    }
+  }
+}

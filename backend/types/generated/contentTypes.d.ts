@@ -677,31 +677,64 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiFooterFooter extends Schema.SingleType {
-  collectionName: 'footers';
+export interface ApiContactMePageContactMePage extends Schema.SingleType {
+  collectionName: 'contact_me_pages';
   info: {
-    singularName: 'footer';
-    pluralName: 'footers';
-    displayName: 'Footer';
+    singularName: 'contact-me-page';
+    pluralName: 'contact-me-pages';
+    displayName: 'ContactMePage';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    socials: Attribute.Component<'footer.socials', true>;
-    sitename: Attribute.String;
+    googleform: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::footer.footer',
+      'api::contact-me-page.contact-me-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::footer.footer',
+      'api::contact-me-page.contact-me-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'HomePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Attribute.Component<'homepage.hero'>;
+    aboutme: Attribute.Component<'homepage.about-me'>;
+    workexperience: Attribute.Component<'homepage.work-experience', true>;
+    interests: Attribute.Component<'homepage.interest', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
       'oneToOne',
       'admin::user'
     > &
@@ -793,6 +826,36 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiSocialSocial extends Schema.SingleType {
+  collectionName: 'socials';
+  info: {
+    singularName: 'social';
+    pluralName: 'socials';
+    displayName: 'Social';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    socials: Attribute.Component<'social.socials', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social.social',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social.social',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -809,10 +872,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::footer.footer': ApiFooterFooter;
+      'api::contact-me-page.contact-me-page': ApiContactMePageContactMePage;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::logo.logo': ApiLogoLogo;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::post.post': ApiPostPost;
+      'api::social.social': ApiSocialSocial;
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_homepage_about_mes",
+  "info": {
+    "displayName": "AboutMe",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "welcome": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "achievements": {
+      "type": "text"
+    }
+  }
+}

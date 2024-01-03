@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_homepage_work_experiences",
+  "info": {
+    "displayName": "WorkExperience",
+    "icon": "briefcase",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "line1": {
+      "type": "string"
+    },
+    "line2": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "tags": {
+      "type": "text"
+    }
+  }
+}

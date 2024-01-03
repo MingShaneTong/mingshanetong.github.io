@@ -1,16 +1,72 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface FooterSocials extends Schema.Component {
-  collectionName: 'components_footer_socials';
+export interface HomepageAboutMe extends Schema.Component {
+  collectionName: 'components_homepage_about_mes';
   info: {
-    displayName: 'Social';
-    icon: 'user';
+    displayName: 'AboutMe';
+    icon: 'alien';
     description: '';
   };
   attributes: {
-    label: Attribute.String;
+    welcome: Attribute.String;
+    description: Attribute.Text;
+    achievements: Attribute.Text;
+  };
+}
+
+export interface HomepageActions extends Schema.Component {
+  collectionName: 'components_homepage_actions';
+  info: {
+    displayName: 'action';
+    icon: 'puzzle';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
     href: Attribute.String;
+  };
+}
+
+export interface HomepageHero extends Schema.Component {
+  collectionName: 'components_homepage_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'dashboard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    actions: Attribute.Component<'homepage.actions', true>;
+  };
+}
+
+export interface HomepageInterest extends Schema.Component {
+  collectionName: 'components_homepage_interests';
+  info: {
+    displayName: 'Interest';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
     icon: Attribute.String;
+  };
+}
+
+export interface HomepageWorkExperience extends Schema.Component {
+  collectionName: 'components_homepage_work_experiences';
+  info: {
+    displayName: 'WorkExperience';
+    icon: 'briefcase';
+    description: '';
+  };
+  attributes: {
+    line1: Attribute.String;
+    line2: Attribute.String;
+    period: Attribute.String;
+    description: Attribute.Text;
+    tags: Attribute.Text;
   };
 }
 
@@ -55,13 +111,32 @@ export interface PostText extends Schema.Component {
   };
 }
 
+export interface SocialSocials extends Schema.Component {
+  collectionName: 'components_footer_socials';
+  info: {
+    displayName: 'Social';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    href: Attribute.String;
+    icon: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'footer.socials': FooterSocials;
+      'homepage.about-me': HomepageAboutMe;
+      'homepage.actions': HomepageActions;
+      'homepage.hero': HomepageHero;
+      'homepage.interest': HomepageInterest;
+      'homepage.work-experience': HomepageWorkExperience;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
       'post.text': PostText;
+      'social.socials': SocialSocials;
     }
   }
 }

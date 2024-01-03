@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_homepage_actions",
+  "info": {
+    "displayName": "action",
+    "icon": "puzzle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}

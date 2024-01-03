@@ -1,0 +1,16 @@
+.card {
+  background: inherit;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    padding: 16px 0;
+  }
+}
+
+.card:hover {
+  background-color: var(--mantine-color-gray-1);
+}
+
+.badge {
+  background-color: var(--mantine-color-brand-2);
+  color: var(--mantine-color-brand-9);
+}

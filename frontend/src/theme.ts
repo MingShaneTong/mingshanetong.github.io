@@ -5,16 +5,16 @@ import { Montserrat, Hind_Madurai } from 'next/font/google';
 
 
 const colorScheme: MantineColorsTuple = [
-  "#eef3ff",
-  "#dee2f2",
-  "#bdc2de",
-  "#98a0ca",
-  "#7a84ba",
-  "#6672b0",
-  "#5c68ac",
-  "#4c5897",
-  "#424e88",
-  "#364379"
+  "#f7f9ff",
+  "#e0edff",
+  "#cddaf2",
+  "#a8badb",
+  "#8ea5cf",
+  "#738fc4",
+  "#597ab8",
+  "#3f65ac",
+  "#2450a0",
+  "#0a3b94"
 ];
 
 const montserrat = Montserrat({ 
@@ -32,7 +32,7 @@ export const theme = createTheme({
     brand: colorScheme,
   },
   primaryColor: 'brand',
-  primaryShade: { light: 0, dark: 9 },
+  primaryShade: { light: 6, dark: 9 },
   fontFamily: hindMadurai.style.fontFamily,
   headings: {
     fontFamily: montserrat.style.fontFamily,

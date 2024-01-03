@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_interests",
+  "info": {
+    "displayName": "Interest",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}
