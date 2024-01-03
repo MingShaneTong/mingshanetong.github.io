@@ -37,3 +37,9 @@ h1.title {
 .article p {
   margin-top: 14px;
 }
+
+.article img {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
