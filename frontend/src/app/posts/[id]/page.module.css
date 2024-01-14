@@ -44,10 +44,18 @@ h1.title {
   max-width: 100%;
 }
 
-.article pre {
+.article > pre {
   border: 1px solid #E5E5E5;
-  background: #F9F9F9;
-  padding: 32px;
-  margin-top: 56px;
-  margin-bottom: 56px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.article > pre > pre {
+  margin: 0 !important;
+}
+
+.article p code{
+  background: rgba(0,0,0,.05);
+  padding: 3px 4px;
+  margin: 0 2px;
 }

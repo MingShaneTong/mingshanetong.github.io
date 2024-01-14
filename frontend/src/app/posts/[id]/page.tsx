@@ -1,6 +1,7 @@
-"use client"
 import { Container, Title } from '@mantine/core';
-import { MDXProvider } from '@mdx-js/react'
+import ReactMarkdown, { Components } from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import rehypeRaw from 'rehype-raw';
 import { notFound } from 'next/navigation';
 import { Text as PostText } from "@/models/Post";
 import { getPostData } from '@/controllers/postController';
@@ -22,10 +23,27 @@ const IndexView = async ({ params }: { params: { id: number } }) => {
 };
 
 const TextView = ({ text }: { text: PostText }) => {
+  let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
+  const components: Partial<Components> = {
+    code({ className = "", children }: { className: string, children: string }) {
+      const match = /language-(\w+)/.exec(className || '')
+      if (!match) {
+        return (<code>{children}</code>)
+      }
+      const language = className.replace("language-", "");
+      return (
+          <SyntaxHighlighter
+            language={language}
+            children={children}
+          />
+      );
+    }
+  };
+
   return (
-    <MDXProvider>
+    <ReactMarkdown components={components} rehypePlugins={rehypePlugins}>
       {text.content}
-    </MDXProvider>
+    </ReactMarkdown>
   );
 }
 
