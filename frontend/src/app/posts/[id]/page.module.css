@@ -43,3 +43,11 @@ h1.title {
   display: block;
   max-width: 100%;
 }
+
+.article pre {
+  border: 1px solid #E5E5E5;
+  background: #F9F9F9;
+  padding: 32px;
+  margin-top: 56px;
+  margin-bottom: 56px;
+}

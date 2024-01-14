@@ -1,6 +1,6 @@
+"use client"
 import { Container, Title } from '@mantine/core';
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
+import { MDXProvider } from '@mdx-js/react'
 import { notFound } from 'next/navigation';
 import { Text as PostText } from "@/models/Post";
 import { getPostData } from '@/controllers/postController';
@@ -22,11 +22,10 @@ const IndexView = async ({ params }: { params: { id: number } }) => {
 };
 
 const TextView = ({ text }: { text: PostText }) => {
-  let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
   return (
-    <ReactMarkdown rehypePlugins={rehypePlugins}>
+    <MDXProvider>
       {text.content}
-    </ReactMarkdown>
+    </MDXProvider>
   );
 }
 

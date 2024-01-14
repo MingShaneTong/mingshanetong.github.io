@@ -10,11 +10,11 @@
     "welcome": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "achievements": {
       "type": "text"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }
