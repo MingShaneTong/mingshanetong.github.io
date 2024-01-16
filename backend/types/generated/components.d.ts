@@ -9,8 +9,8 @@ export interface HomepageAboutMe extends Schema.Component {
   };
   attributes: {
     welcome: Attribute.String;
-    description: Attribute.Text;
     achievements: Attribute.Text;
+    description: Attribute.RichText;
   };
 }
 
@@ -49,8 +49,8 @@ export interface HomepageInterest extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.Text;
     icon: Attribute.String;
+    description: Attribute.RichText;
   };
 }
 

@@ -24,7 +24,7 @@ export default function Hero(
             </Text>
           </Container>
 
-          <div className={classes.controls}>
+          <div className={classes.controlButtons}>
             {data.actions.map(button => {
               return (
                 <Button
