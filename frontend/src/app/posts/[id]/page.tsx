@@ -25,7 +25,7 @@ const IndexView = async ({ params }: { params: { id: number } }) => {
 
 const TextView = ({ text }: { text: PostText }) => {
   let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
-  const components: Partial<Components> = {
+  const components = {
     img({ src, alt }: { src: string, alt: string }) {
       if(src[0] == '/') {
         src = FRONTEND_UPLOAD_URL + src;
@@ -39,16 +39,16 @@ const TextView = ({ text }: { text: PostText }) => {
       }
       const language = className.replace("language-", "");
       return (
-          <SyntaxHighlighter
-            language={language}
-            children={children}
-          />
+          <SyntaxHighlighter 
+            language={language}>
+              {children}
+          </SyntaxHighlighter>
       );
     }
   };
 
   return (
-    <ReactMarkdown components={components} rehypePlugins={rehypePlugins}>
+    <ReactMarkdown components={components as Partial<Components>} rehypePlugins={rehypePlugins}>
       {text.content}
     </ReactMarkdown>
   );
