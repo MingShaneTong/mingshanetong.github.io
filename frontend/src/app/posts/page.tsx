@@ -4,7 +4,6 @@ import Link from "next/link";
 import '@mantine/carousel/styles.css';
 import { getPosts, getRecommendedPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
-import { FRONTEND_UPLOAD_URL } from "@/config/api";
 import styles from "./page.module.css";
 import Response from "@/models/api/Response";
 
@@ -51,13 +50,14 @@ function HighlightsCarousel({ data }: { data: Post[] }) {
 }
 
 function Card({ data }: { data: Post }) {
+  let url = data.attributes.coverImage.url;
   return (
     <Paper
       shadow="md"
       p="xl"
       radius="md"
       style={{ 
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${FRONTEND_UPLOAD_URL}${data.attributes.coverImage.data.attributes.url})` 
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(' + url + ')' 
       }}
       className={styles.card}
     >

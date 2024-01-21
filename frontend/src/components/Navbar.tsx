@@ -17,7 +17,7 @@ import {
   useMantineTheme
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown, IconSun, IconMoon } from '@tabler/icons-react';
+import { IconChevronDown } from '@tabler/icons-react';
 import { NavItem, Navbar } from '@/models/Navbar';
 import LogoElement from "@/components/Logo";
 import Logo from '@/models/Logo';
@@ -45,11 +45,7 @@ export default function HeaderMegaMenu(
             })}
           </Group>
 
-          <Group justify="flex-end" visibleFrom="sm">
-            <Box style={{ width: 120 }}>
-            </Box> 
-          </Group>
-
+          <Group justify="flex-end" visibleFrom="sm" style={{ width: 120 }} />
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
       </header>

@@ -1,7 +1,7 @@
-import { AspectRatio, Card, Container, SimpleGrid, Image, Text, Box } from "@mantine/core";
+import { AspectRatio, Card, Container, SimpleGrid, Text, Box } from "@mantine/core";
+import Image from "next/image";
 import { getProjectPosts } from "@/controllers/postController";
 import { Post } from "@/models/Post";
-import { FRONTEND_UPLOAD_URL } from "@/config/api";
 import styles from "./page.module.scss";
 import Response from "@/models/api/Response";
 
@@ -22,14 +22,14 @@ export default async function ProjectsView() {
           let options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: 'numeric'}
           let date = published.toLocaleDateString("en-GB", options);
 
-          var coverImage = data.attributes.coverImage.data;
+          var coverImage = data.attributes.coverImage;
 
           return (
             <Card key={data.attributes.title} p="md" radius="md" component="a" href={`/posts/${data.id}`} className={styles.card}>
               <AspectRatio ratio={1920 / 1080}>
                 {coverImage == null ? 
                   <Box className={styles.placeholder}></Box>: 
-                  <Image src={`${FRONTEND_UPLOAD_URL}${coverImage.attributes.url}`} alt={coverImage.attributes.alternativeText} />}
+                  <Image src={coverImage.url} alt={coverImage.alternativeText} />}
               </AspectRatio>
               <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
                 {date}

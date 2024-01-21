@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
 import { Text as PostText } from "@/models/Post";
-import { FRONTEND_UPLOAD_URL } from '@/config/api';
 import { getPostIds, getPostData } from '@/controllers/postController';
 import styles from "./page.module.css";
 
@@ -37,9 +36,6 @@ const TextView = ({ text }: { text: PostText }) => {
   let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
   const components = {
     img({ src, alt }: { src: string, alt: string }) {
-      if(src[0] == '/') {
-        src = FRONTEND_UPLOAD_URL + src;
-      }
       return <Image src={src} alt={alt} />
     }, 
     code({ className = "", children }: { className: string, children: string }) {

@@ -57,7 +57,7 @@ export const getSocialData = async () => {
 export const getLogoData = async () => {
   const query = qs.stringify(
     {
-      populate: ["light", "dark"],
+      populate: ["media"],
     },
     {
       encodeValuesOnly: true

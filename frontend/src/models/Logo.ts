@@ -4,11 +4,6 @@ export default interface Logo {
   id: number;
   attributes: {
     sitename: string;
-    light: {
-      data: Media;
-    };
-    dark: {
-      data: Media;
-    }
+    media: Media;
   }
 }
