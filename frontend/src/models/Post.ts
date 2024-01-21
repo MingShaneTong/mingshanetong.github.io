@@ -11,9 +11,7 @@ export interface Post {
     category: string;
     recommended: boolean;
     project: boolean;
-    coverImage: {
-      data: Media;
-    };
+    coverImage: Media;
   };
 };
 

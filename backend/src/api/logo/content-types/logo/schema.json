@@ -12,30 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "light": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "dark": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "sitename": {
       "type": "string"
+    },
+    "media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.media"
     }
   }
 }

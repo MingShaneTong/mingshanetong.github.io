@@ -14,7 +14,6 @@ services:
     environment:
       - NODE_ENV=development
       - BACKEND_API_URL=http://backend:1337
-      - NEXT_PUBLIC_FRONTEND_UPLOAD_URL=/upload
     networks:
       - contentapi
     depends_on:

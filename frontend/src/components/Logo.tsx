@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { Group, Text } from "@mantine/core";
 import Logo from "@/models/Logo"
-import { FRONTEND_UPLOAD_URL } from "@/config/api";
 import { Manrope } from 'next/font/google';
 import Link from "next/link";
+import Image from "next/image";
 
 const manrope = Manrope({ 
   weight: "500",
@@ -15,10 +14,10 @@ export default function LogoComponent({ logo, size = 36 }: { logo: Logo, size?: 
     <Link href="/">  
       <Group gap="xs">
         <Image 
-          src={FRONTEND_UPLOAD_URL + logo.attributes.light.data.attributes.url}
+          src={logo.attributes.media.url}
           width={size}
           height={size} 
-          alt={logo.attributes.light.data.attributes.alternativeText}
+          alt={logo.attributes.media.alternativeText}
         />
         <Text style={manrope.style} size="lg">
           {logo.attributes.sitename}

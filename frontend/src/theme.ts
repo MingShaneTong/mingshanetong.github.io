@@ -1,5 +1,3 @@
-"use client";
-
 import { MantineColorsTuple, createTheme, rem } from "@mantine/core";
 import { Montserrat, Hind_Madurai } from 'next/font/google';
 

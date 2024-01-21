@@ -70,6 +70,18 @@ export interface HomepageWorkExperience extends Schema.Component {
   };
 }
 
+export interface MediaMedia extends Schema.Component {
+  collectionName: 'components_media_media';
+  info: {
+    displayName: 'Media';
+    description: '';
+  };
+  attributes: {
+    url: Attribute.String;
+    alternativeText: Attribute.String;
+  };
+}
+
 export interface NavbarNavItem extends Schema.Component {
   collectionName: 'components_navigation_nav_items';
   info: {
@@ -133,6 +145,7 @@ declare module '@strapi/types' {
       'homepage.hero': HomepageHero;
       'homepage.interest': HomepageInterest;
       'homepage.work-experience': HomepageWorkExperience;
+      'media.media': MediaMedia;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-nav-item': NavbarSubNavItem;
       'post.text': PostText;

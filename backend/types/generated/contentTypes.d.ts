@@ -754,9 +754,8 @@ export interface ApiLogoLogo extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    light: Attribute.Media;
-    dark: Attribute.Media;
     sitename: Attribute.String;
+    media: Attribute.Component<'media.media'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -814,8 +813,8 @@ export interface ApiPostPost extends Schema.CollectionType {
     title: Attribute.String;
     content: Attribute.Component<'post.text', true>;
     recommended: Attribute.Boolean;
-    coverImage: Attribute.Media;
     project: Attribute.Boolean;
+    coverImage: Attribute.Component<'media.media'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

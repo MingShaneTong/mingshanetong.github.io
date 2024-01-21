@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link';
 import { Container, Group, ActionIcon } from '@mantine/core';
 import { Social, SocialItem } from '@/models/Social';
