@@ -76,6 +76,25 @@ export const getProjectPosts = async () => {
   return data;
 };
 
+export const getPostIds = async () => {
+  const query = qs.stringify(
+    {
+      fields: ['id']
+    },
+    {
+      encodeValuesOnly: true
+    }
+  );
+  
+  const response = await fetch(`${BACKEND_API_URL}/api/posts?${query}`, {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  const data: Response<Post[]> = await response.json();
+  return data;
+};
+
 export const getPostData = async (id: number) => {
   const query = qs.stringify(
     {

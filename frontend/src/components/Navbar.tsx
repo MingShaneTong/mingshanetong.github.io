@@ -1,3 +1,5 @@
+'use client';
+
 import {
   HoverCard,
   Group,
@@ -11,11 +13,8 @@ import {
   Drawer,
   Collapse,
   ScrollArea,
-  ActionIcon, 
   rem,
-  useMantineTheme,
-  useMantineColorScheme, 
-  useComputedColorScheme
+  useMantineTheme
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown, IconSun, IconMoon } from '@tabler/icons-react';
@@ -48,7 +47,6 @@ export default function HeaderMegaMenu(
 
           <Group justify="flex-end" visibleFrom="sm">
             <Box style={{ width: 120 }}>
-              {/* <ColorSchemeIcon /> */}
             </Box> 
           </Group>
 
@@ -75,24 +73,6 @@ export default function HeaderMegaMenu(
         </ScrollArea>
       </Drawer>
     </Box>
-  );
-}
-
-function ColorSchemeIcon() {
-  const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme('light');
-
-  return (
-    <ActionIcon
-      onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
-      variant="default"
-      size="xl"
-      aria-label="Toggle color scheme"
-    >
-      {computedColorScheme === 'light' ? 
-        <IconSun className={classes.light} stroke={1.5} /> : 
-        <IconMoon className={classes.dark} stroke={1.5} />}
-    </ActionIcon>
   );
 }
 

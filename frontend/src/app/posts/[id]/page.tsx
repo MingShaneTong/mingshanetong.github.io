@@ -1,12 +1,22 @@
-import { Container, Image, Title } from '@mantine/core';
+import { Container, Title } from '@mantine/core';
 import ReactMarkdown, { Components } from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import rehypeRaw from 'rehype-raw';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+
 import { Text as PostText } from "@/models/Post";
-import { getPostData } from '@/controllers/postController';
-import styles from "./page.module.css";
 import { FRONTEND_UPLOAD_URL } from '@/config/api';
+import { getPostIds, getPostData } from '@/controllers/postController';
+import styles from "./page.module.css";
+
+export async function generateStaticParams() {
+  let posts = await getPostIds();
+ 
+  return posts.data.map((post) => ({
+    id: post.id.toString(),
+  }))
+}
 
 const IndexView = async ({ params }: { params: { id: number } }) => {
   let response = await getPostData(params.id).catch(notFound);
