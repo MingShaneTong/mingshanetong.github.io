@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import "@mantine/core/styles.css";
-import { ColorSchemeScript } from '@mantine/core'
 import './globals.css'
 import Provider from './Provider';
 
 require('dotenv').config()
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +16,6 @@ export default function RootLayout({ children }: { children: React.ReactNode[] }
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript />
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
           name="viewport"

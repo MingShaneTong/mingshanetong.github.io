@@ -36,7 +36,7 @@ const TextView = ({ text }: { text: PostText }) => {
   let rehypePlugins = (text.type == 'html') ? [rehypeRaw] : [];
   const components = {
     img({ src, alt }: { src: string, alt: string }) {
-      return <Image src={src} alt={alt} />
+      return <Image src={src} alt={alt} width="700" height="700" />
     }, 
     code({ className = "", children }: { className: string, children: string }) {
       const match = /language-(\w+)/.exec(className || '')
