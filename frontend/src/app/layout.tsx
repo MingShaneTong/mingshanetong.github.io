@@ -5,7 +5,7 @@ import { getMetadata } from "@/controllers/layoutController";
 
 require('dotenv').config()
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export async function generateMetadata() {
   var metadata = await getMetadata();
