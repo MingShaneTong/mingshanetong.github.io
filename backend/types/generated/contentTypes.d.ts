@@ -766,6 +766,38 @@ export interface ApiLogoLogo extends Schema.SingleType {
   };
 }
 
+export interface ApiMetadataMetadata extends Schema.SingleType {
+  collectionName: 'metadatas';
+  info: {
+    singularName: 'metadata';
+    pluralName: 'metadatas';
+    displayName: 'metadata';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    shortcutIcon: Attribute.String;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::metadata.metadata',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::metadata.metadata',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNavbarNavbar extends Schema.SingleType {
   collectionName: 'navbars';
   info: {
@@ -874,6 +906,7 @@ declare module '@strapi/types' {
       'api::contact-me-page.contact-me-page': ApiContactMePageContactMePage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::logo.logo': ApiLogoLogo;
+      'api::metadata.metadata': ApiMetadataMetadata;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::post.post': ApiPostPost;
       'api::social.social': ApiSocialSocial;

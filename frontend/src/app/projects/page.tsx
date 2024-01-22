@@ -26,10 +26,10 @@ export default async function ProjectsView() {
 
           return (
             <Card key={data.attributes.title} p="md" radius="md" component="a" href={`/posts/${data.id}`} className={styles.card}>
-              <AspectRatio ratio={1920 / 1080}>
+              <AspectRatio ratio={16 / 9}>
                 {coverImage == null ? 
                   <Box className={styles.placeholder}></Box>: 
-                  <Image src={coverImage.url} alt={coverImage.alternativeText} />}
+                  <Image src={coverImage.url} alt={coverImage.alternativeText} width={640} height={360} />}
               </AspectRatio>
               <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
                 {date}
