@@ -5,6 +5,7 @@ import Response from "@/models/api/Response";
 import { Navbar } from '@/models/Navbar';
 import { Social } from '@/models/Social';
 import Logo from '@/models/Logo';
+import { Metadata } from '@/models/Metadata';
 
 export const getNavData = async () => {
   const query = qs.stringify(
@@ -72,3 +73,13 @@ export const getLogoData = async () => {
   const data: Response<Logo> = await response.json();
   return data;
 };
+
+export const getMetadata = async () => {
+  const response = await fetch(`${BACKEND_API_URL}/api/metadata`, {
+    headers: {
+      Accept: "application/json",
+    },
+  })
+  const data: Response<Metadata> = await response.json();
+  return data;
+}

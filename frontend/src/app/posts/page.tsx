@@ -50,14 +50,16 @@ function HighlightsCarousel({ data }: { data: Post[] }) {
 }
 
 function Card({ data }: { data: Post }) {
-  let url = data.attributes.coverImage.url;
+  let coverImage = data.attributes.coverImage;
+  let url = (coverImage == null ? "": ", url(" + coverImage.url + ")");
+
   return (
     <Paper
       shadow="md"
       p="xl"
       radius="md"
       style={{ 
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(' + url + ')' 
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))' + url 
       }}
       className={styles.card}
     >
